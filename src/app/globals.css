@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #1c1613;
+  color: #f2e9dd;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background-color: #b8622c;
+  color: #f2e9dd;
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid #d4a24c;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Perforated "ticket" edge used on menu cards */
+.ticket-edge {
+  background-image: radial-gradient(circle at 6px 0, transparent 6px, currentColor 6.5px);
+  background-size: 16px 12px;
+  background-repeat: repeat-x;
+  background-position: top left;
+  height: 8px;
+  color: #1c1613;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
