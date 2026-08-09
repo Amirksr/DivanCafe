@@ -1,6 +1,8 @@
+import Image from "next/image";
 import type { Locale, Messages } from "@/lib/i18n";
 import type { MenuItem } from "@/lib/data";
 import { cn, formatPrice, ledgerNumber } from "@/lib/utils";
+import { categoryIcons } from "@/components/icons";
 
 interface MenuTicketProps {
   item: MenuItem;
@@ -14,6 +16,10 @@ interface MenuTicketProps {
 export default function MenuTicket({ item, index, locale, dict, tone = "dark" }: MenuTicketProps) {
   const isFa = locale === "fa";
   const isLight = tone === "light";
+  const CategoryIcon = categoryIcons[item.category];
+  const photoSrc = item.unsplashId
+    ? `https://images.unsplash.com/photo-${item.unsplashId}?w=200&q=70&auto=format&fit=crop`
+    : item.localPhoto;
 
   return (
     <article
@@ -25,6 +31,22 @@ export default function MenuTicket({ item, index, locale, dict, tone = "dark" }:
       <span className="pt-1 font-mono text-xs text-copper-dim" aria-hidden="true">
         {ledgerNumber(index, locale)}
       </span>
+
+      {photoSrc ? (
+        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-sm border border-ink-line/60">
+          <Image src={photoSrc} alt="" fill sizes="56px" className="object-cover" />
+        </div>
+      ) : (
+        <div
+          aria-hidden="true"
+          className={cn(
+            "flex h-14 w-14 shrink-0 items-center justify-center rounded-sm border",
+            isLight ? "border-ink/15 bg-black/[0.02] text-ink/40" : "border-ink-line bg-white/[0.02] text-parchment/40"
+          )}
+        >
+          <CategoryIcon className="h-6 w-6" strokeWidth={1.3} />
+        </div>
+      )}
 
       <div className="flex-1">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">

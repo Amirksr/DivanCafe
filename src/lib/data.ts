@@ -9,6 +9,13 @@ export interface MenuItem {
   popular?: boolean;
   vegetarian?: boolean;
   isNew?: boolean;
+  /**
+   * images.unsplash.com photo ID, present only for the handful of items
+   * where a real, accurately-matching, freely-licensed photo was found.
+   */
+  unsplashId?: string;
+  /** Path under /public for a user-supplied photo of this exact dish, e.g. "/menu-photos/mirza.jpg". */
+  localPhoto?: string;
 }
 
 export const categoryOrder: CategoryKey[] = [
@@ -55,6 +62,7 @@ export const menuItems: MenuItem[] = [
     price: 90000,
     isNew: true,
     vegetarian: true,
+    unsplashId: "1576685880864-50b3b35f1c55",
   },
   {
     id: "pour-over",
@@ -155,6 +163,7 @@ export const menuItems: MenuItem[] = [
     name: { fa: "کوفته زیتون گیلانی", en: "Gilani Olive Kufteh" },
     desc: { fa: "گوشت گوسفندی، زیتون، آلو، آب‌نارنج", en: "Lamb, olives, sour plum, bitter orange" },
     price: 340000,
+    localPhoto: "/menu-photos/zeytoon-koofte.jpg",
   },
   {
     id: "mirza",
@@ -163,6 +172,7 @@ export const menuItems: MenuItem[] = [
     desc: { fa: "بادمجان دودی، گوجه، تخم‌مرغ", en: "Smoked eggplant, tomato, egg" },
     price: 245000,
     vegetarian: true,
+    localPhoto: "/menu-photos/mirza.jpg",
   },
   {
     id: "baklava",
@@ -172,6 +182,7 @@ export const menuItems: MenuItem[] = [
     price: 78000,
     popular: true,
     vegetarian: true,
+    unsplashId: "1702745284711-fc5668288afa",
   },
   {
     id: "saffron-croissant",
@@ -181,6 +192,7 @@ export const menuItems: MenuItem[] = [
     price: 95000,
     isNew: true,
     vegetarian: true,
+    unsplashId: "1668446377138-c763c16e99f0",
   },
   {
     id: "walnut-cake",
