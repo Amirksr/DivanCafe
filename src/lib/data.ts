@@ -213,12 +213,12 @@ export interface GalleryPhoto {
 }
 
 export const galleryPhotos: GalleryPhoto[] = [
-  { id: "g1", captionKey: "ambiance.features.interior.title", unsplashId: "1753873555674-1d6698c7537b" },
-  { id: "g2", captionKey: "ambiance.features.courtyard.title", unsplashId: "1746611341813-0ef223e3f8bd" },
-  { id: "g3", captionKey: "ambiance.features.roastery.title", unsplashId: "1753837787691-84a06d715d24" },
-  { id: "g4", captionKey: "ambiance.features.library.title", unsplashId: "1754697831323-6d51e460ba8f" },
+  { id: "g1", captionKey: "ambiance.features.interior.title", unsplashId: "1749871615234-98bff62995ba" },
+  { id: "g2", captionKey: "ambiance.features.courtyard.title", unsplashId: "1759050483129-512154ddd640" },
+  { id: "g3", captionKey: "ambiance.features.roastery.title", unsplashId: "1690983325192-a4c13c2e331d" },
+  { id: "g4", captionKey: "ambiance.features.library.title", unsplashId: "1560976813-060185623241" },
   { id: "g5", captionKey: "categories.items.coffee.name", unsplashId: "1426174840074-541ae41efdb9" },
-  { id: "g6", captionKey: "categories.items.pastry.name", unsplashId: "1654767837293-2368d3516d0f" },
+  { id: "g6", captionKey: "categories.items.pastry.name", unsplashId: "1758900450186-e829f72d25fb" },
 ];
 
 export const stats = [

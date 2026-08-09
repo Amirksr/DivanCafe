@@ -6,7 +6,7 @@ import RingStamp from "@/components/RingStamp";
 import Reveal from "@/components/Reveal";
 
 /** Coffee-with-cream photo (Unsplash License, free for commercial use). */
-const HERO_PHOTO_ID = "1426174840074-541ae41efdb9";
+const HERO_PHOTO_ID = "1762943483387-e9fb0ada8d53";
 
 export default function Hero({ locale, dict }: { locale: Locale; dict: Messages }) {
   const isFa = locale === "fa";
