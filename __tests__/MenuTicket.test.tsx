@@ -40,11 +40,10 @@ describe("MenuTicket", () => {
     expect(screen.getByText("04")).toBeInTheDocument();
   });
 
-  it("falls back to the category icon when the item has no confirmed photo", () => {
-    expect(sampleItem.unsplashId).toBeUndefined();
-    expect(sampleItem.localPhoto).toBeUndefined();
+  it("falls back to the category icon when the item has no photo", () => {
+    const photolessItem = { ...sampleItem, unsplashId: undefined, localPhoto: undefined };
     const { container } = render(
-      <MenuTicket item={sampleItem} index={1} locale="en" dict={getMessages("en")} />
+      <MenuTicket item={photolessItem} index={1} locale="en" dict={getMessages("en")} />
     );
     expect(container.querySelector("img")).not.toBeInTheDocument();
     expect(container.querySelector("svg")).toBeInTheDocument();

@@ -36,6 +36,7 @@ export const menuItems: MenuItem[] = [
     price: 65000,
     popular: true,
     vegetarian: true,
+    localPhoto: "/menu-photos/espresso.webp",
   },
   {
     id: "cortado",
@@ -73,6 +74,7 @@ export const menuItems: MenuItem[] = [
     desc: { fa: "انتخاب هفتگی رست‌مستر", en: "Roastmaster's weekly single-origin" },
     price: 120000,
     vegetarian: true,
+    localPhoto: "/menu-photos/pour-over.webp",
   },
   {
     id: "cold-brew",
@@ -120,6 +122,7 @@ export const menuItems: MenuItem[] = [
     desc: { fa: "چای لاهیجان با گلاب بهارنارنج", en: "Lahijan black tea with orange blossom water" },
     price: 70000,
     vegetarian: true,
+    localPhoto: "/menu-photos/chai-bahar.webp",
   },
   {
     id: "sohan-latte",
