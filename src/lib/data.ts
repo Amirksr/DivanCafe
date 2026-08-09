@@ -45,6 +45,7 @@ export const menuItems: MenuItem[] = [
     price: 95000,
     popular: true,
     vegetarian: true,
+    localPhoto: "/menu-photos/cortado.webp",
   },
   {
     id: "flat-white",
@@ -53,6 +54,7 @@ export const menuItems: MenuItem[] = [
     desc: { fa: "دو شات ریسترتو با میکروفوم مخملی", en: "Double ristretto, velvety microfoam" },
     price: 105000,
     vegetarian: true,
+    localPhoto: "/menu-photos/flat-white.webp",
   },
   {
     id: "turkish",
@@ -80,6 +82,7 @@ export const menuItems: MenuItem[] = [
     price: 98000,
     popular: true,
     vegetarian: true,
+    localPhoto: "/menu-photos/cold-brew.webp",
   },
   {
     id: "iced-shekar",
@@ -89,6 +92,7 @@ export const menuItems: MenuItem[] = [
     price: 108000,
     isNew: true,
     vegetarian: true,
+    localPhoto: "/menu-photos/iced-shekar.webp",
   },
   {
     id: "sekanjabin-fizz",
@@ -97,6 +101,7 @@ export const menuItems: MenuItem[] = [
     desc: { fa: "سکنجبین خانگی، سودا، برگ نعنا", en: "House sekanjabin syrup, soda, mint" },
     price: 88000,
     vegetarian: true,
+    localPhoto: "/menu-photos/sekanjabin-fizz.webp",
   },
   {
     id: "saffron-latte",
@@ -106,6 +111,7 @@ export const menuItems: MenuItem[] = [
     price: 92000,
     popular: true,
     vegetarian: true,
+    localPhoto: "/menu-photos/saffron-latte.webp",
   },
   {
     id: "chai-bahar",
@@ -122,6 +128,7 @@ export const menuItems: MenuItem[] = [
     desc: { fa: "زنجبیل تازه، دارچین سیلان، لیموعمانی", en: "Fresh ginger, Ceylon cinnamon, dried lime" },
     price: 75000,
     vegetarian: true,
+    localPhoto: "/menu-photos/sohan-latte.webp",
   },
   {
     id: "eggs-kuku",
@@ -131,6 +138,7 @@ export const menuItems: MenuItem[] = [
     price: 175000,
     popular: true,
     vegetarian: true,
+    localPhoto: "/menu-photos/eggs-kuku.webp",
   },
   {
     id: "panir-sabzi",
@@ -139,6 +147,7 @@ export const menuItems: MenuItem[] = [
     desc: { fa: "پنیر لیقوان، گردو، سبزی خوردن، مربای به", en: "Lighvan cheese, walnuts, herbs, quince jam" },
     price: 165000,
     vegetarian: true,
+    localPhoto: "/menu-photos/panir-sabzi.webp",
   },
   {
     id: "shakshuka",
@@ -148,6 +157,7 @@ export const menuItems: MenuItem[] = [
     price: 195000,
     isNew: true,
     vegetarian: true,
+    localPhoto: "/menu-photos/shakshuka.webp",
   },
   {
     id: "kalam-polo",
@@ -156,6 +166,7 @@ export const menuItems: MenuItem[] = [
     desc: { fa: "دستور خانگی مادربزرگ سرآشپز", en: "The chef's grandmother's recipe" },
     price: 320000,
     popular: true,
+    localPhoto: "/menu-photos/kalam-polo.webp",
   },
   {
     id: "zeytoon-koofte",
@@ -163,7 +174,7 @@ export const menuItems: MenuItem[] = [
     name: { fa: "کوفته زیتون گیلانی", en: "Gilani Olive Kufteh" },
     desc: { fa: "گوشت گوسفندی، زیتون، آلو، آب‌نارنج", en: "Lamb, olives, sour plum, bitter orange" },
     price: 340000,
-    localPhoto: "/menu-photos/zeytoon-koofte.jpg",
+    localPhoto: "/menu-photos/zeytoon-koofte.webp",
   },
   {
     id: "mirza",
@@ -172,7 +183,7 @@ export const menuItems: MenuItem[] = [
     desc: { fa: "بادمجان دودی، گوجه، تخم‌مرغ", en: "Smoked eggplant, tomato, egg" },
     price: 245000,
     vegetarian: true,
-    localPhoto: "/menu-photos/mirza.jpg",
+    localPhoto: "/menu-photos/mirza.webp",
   },
   {
     id: "baklava",
@@ -201,6 +212,7 @@ export const menuItems: MenuItem[] = [
     desc: { fa: "بدون شکر تصفیه‌شده، با کارامل خرما", en: "No refined sugar, date caramel" },
     price: 85000,
     vegetarian: true,
+    localPhoto: "/menu-photos/walnut-cake.webp",
   },
 ];
 

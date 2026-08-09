@@ -67,6 +67,6 @@ describe("MenuTicket", () => {
     );
     const img = container.querySelector("img");
     expect(img).toBeInTheDocument();
-    expect(img?.getAttribute("src")).toContain("mirza.jpg");
+    expect(img?.getAttribute("src")).toContain("mirza.webp");
   });
 });
