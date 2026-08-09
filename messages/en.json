@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "title": "Divan | Coffeehouse & Kitchen",
+    "description": "Divan is a coffeehouse in Isfahan pairing specialty coffee with the heritage of Persian ghahveh-khaneh culture and poetry."
+  },
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About Divan",
+    "contact": "Contact",
+    "reserve": "Reserve a table"
+  },
+  "hero": {
+    "eyebrow": "Coffeehouse & Kitchen — Est. 2022",
+    "title": "Divan",
+    "subtitle": "Every cup, a verse in our daily ledger",
+    "description": "At Divan, brewing coffee is treated like reading a ghazal — slow, precise, and full of meaning. Fresh-roasted beans, house-baked bread, and a room built for staying a while.",
+    "cta_menu": "View the menu",
+    "cta_reserve": "Reserve a table",
+    "open_badge": "Open now",
+    "hours_today": "7:30 — 23:00"
+  },
+  "stats": {
+    "title": "Divan, in numbers",
+    "cups": "cups poured a year",
+    "beans": "origin countries",
+    "rating": "average rating",
+    "years": "years of craft"
+  },
+  "categories": {
+    "eyebrow": "The Ledger",
+    "title": "Browse the menu",
+    "description": "From single-origin espresso to a full Persian breakfast — everything has its page in this ledger.",
+    "items": {
+      "coffee": { "name": "Coffee & Espresso", "count": "18 drinks" },
+      "tea": { "name": "Tea & Infusions", "count": "12 drinks" },
+      "breakfast": { "name": "Breakfast", "count": "9 dishes" },
+      "pastry": { "name": "Pastry & Dessert", "count": "14 items" },
+      "cold": { "name": "Cold Drinks", "count": "10 drinks" },
+      "brunch": { "name": "Mains", "count": "11 dishes" }
+    }
+  },
+  "popular": {
+    "eyebrow": "Selected Verses",
+    "title": "Most loved",
+    "description": "The lines most repeated in our ledger.",
+    "add": "Add to order",
+    "view_all": "See the full menu"
+  },
+  "gallery": {
+    "eyebrow": "The Photo Ledger",
+    "title": "A look inside Divan",
+    "description": "Light through old window frames, steam off the cup, and the low hum of conversation."
+  },
+  "ambiance": {
+    "eyebrow": "The Room",
+    "title": "A house built for staying",
+    "description": "Divan lives inside a restored Isfahani house — brick vaults, a central courtyard, and light that changes color by the hour. A place to work, meet friends, or just sit with a book.",
+    "features": {
+      "interior": { "title": "Interior", "desc": "Original brick vaults with walnut-wood tables" },
+      "courtyard": { "title": "Courtyard", "desc": "Seating beneath the orange tree each spring" },
+      "roastery": { "title": "Glass roastery", "desc": "Watch the beans roast up close" },
+      "library": { "title": "Reading corner", "desc": "A shelf of classic and modern Persian poetry" }
+    }
+  },
+  "hours": {
+    "title": "Opening hours",
+    "everyday": "Saturday — Thursday",
+    "weekend": "Friday",
+    "everyday_time": "7:30 AM — 11:00 PM",
+    "weekend_time": "9:00 AM — Midnight"
+  },
+  "footer": {
+    "tagline": "Divan — a ledger of coffee, poetry, and long conversations.",
+    "quick_links": "Quick links",
+    "contact_info": "Contact",
+    "address": "Chaharbagh Abbasi St., Narenjestan Alley No. 12, Isfahan",
+    "phone": "+98 31 3220 1555",
+    "email": "hello@divan-cafe.ir",
+    "newsletter": "Newsletter",
+    "newsletter_desc": "Fresh cups and poetry nights, straight to your inbox.",
+    "newsletter_placeholder": "Your email",
+    "newsletter_cta": "Subscribe",
+    "rights": "All rights reserved.",
+    "made_by": "Designed & built with ❤"
+  },
+  "menu_page": {
+    "eyebrow": "The Full Ledger",
+    "title": "Divan Menu",
+    "description": "Every drink and dish at Divan, sorted like the verses of a long ghazal.",
+    "filter_all": "All"
+  },
+  "about_page": {
+    "eyebrow": "The Divan story",
+    "title": "From an old house to a daily ledger",
+    "p1": "Divan opened in 2022 inside one of Isfahan's old houses. The idea was simple: coffee at a world-class level, served in a room that still smells like home.",
+    "p2": "The name \"Divan\" comes from classical Persian poetry collections — small moments gathered into a single volume. Every menu, every cup, every table is a page of that volume.",
+    "p3": "We source beans from three regions — Ethiopia, Colombia, and Brazil — and roast weekly in our own glass-walled roastery.",
+    "values_title": "What we hold to",
+    "values": {
+      "quality": { "title": "No compromise on quality", "desc": "Fresh beans, local dairy, and produce sourced daily." },
+      "craft": { "title": "Slow craft", "desc": "Every drink is made by hand, with attention." },
+      "community": { "title": "A gathering place", "desc": "Poetry nights and local artists, hosted regularly." }
+    },
+    "team_title": "The people of Divan",
+    "team": {
+      "roaster": { "name": "Sara Ahmadi", "role": "Head of Coffee & Roastmaster" },
+      "chef": { "name": "Amirhossein Rezaei", "role": "Executive Chef" },
+      "host": { "name": "Negar Karimi", "role": "Guest Experience Lead" }
+    }
+  },
+  "contact_page": {
+    "eyebrow": "Get in touch",
+    "title": "Find Divan",
+    "description": "For table reservations, private events, or just to say hello — leave a message or call us.",
+    "form": {
+      "name": "Your name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Your message",
+      "submit": "Send message",
+      "party_size": "Party size",
+      "date": "Date",
+      "reserve_title": "Reserve a table"
+    },
+    "info_title": "Reach us",
+    "map_note": "On the map, Divan sits just behind Sheikh Lotfollah Mosque."
+  },
+  "common": {
+    "toman": "Toman",
+    "new": "New",
+    "signature": "Divan signature",
+    "vegetarian": "Vegetarian",
+    "language": "Language"
+  }
+}
