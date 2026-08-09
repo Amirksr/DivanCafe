@@ -6,10 +6,6 @@
   color-scheme: dark;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background-color: #1c1613;
   color: #f2e9dd;
