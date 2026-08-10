@@ -1,4 +1,4 @@
-import { cn, formatNumber, formatPrice, ledgerNumber } from "@/lib/utils";
+import { cn, easeOutCubic, formatNumber, formatPrice, ledgerNumber } from "@/lib/utils";
 
 describe("cn", () => {
   it("joins truthy class fragments with a space", () => {
@@ -45,21 +45,28 @@ describe("formatPrice", () => {
 });
 
 describe("formatNumber", () => {
-  it("preserves one decimal place for fractional values", () => {
-    expect(formatNumber(4.9, "en")).toBe("4.9");
-  });
-
-  it("does not add a decimal point to whole numbers", () => {
+  it("defaults to 0 decimals when none is specified", () => {
     expect(formatNumber(120000, "en")).toBe("120,000");
     expect(formatNumber(4, "en")).toBe("4");
   });
 
-  it("rounds to one decimal place rather than truncating further precision", () => {
-    expect(formatNumber(4.87, "en")).toBe("4.9");
+  it("formats with a fixed decimal count when specified", () => {
+    expect(formatNumber(4.9, "en", 1)).toBe("4.9");
+    expect(formatNumber(4, "en", 1)).toBe("4.0");
+  });
+
+  it("rounds to the requested decimal count rather than truncating", () => {
+    expect(formatNumber(4.87, "en", 1)).toBe("4.9");
+  });
+
+  it("truncates decimals away when decimals is 0, even for fractional input", () => {
+    // This is the behavior a mid-animation count-up frame relies on: an
+    // intermediate float for an integer stat must not show a stray decimal.
+    expect(formatNumber(45123.456, "en", 0)).toBe("45,123");
   });
 
   it("formats fractional values with Persian digits for fa", () => {
-    const result = formatNumber(4.9, "fa");
+    const result = formatNumber(4.9, "fa", 1);
     expect(result).toMatch(/[۰-۹]/);
     expect(result).not.toMatch(/[0-9]/);
   });
@@ -67,6 +74,28 @@ describe("formatNumber", () => {
   it("throws on non-finite values", () => {
     expect(() => formatNumber(Number.NaN, "en")).toThrow(RangeError);
     expect(() => formatNumber(Number.POSITIVE_INFINITY, "en")).toThrow(RangeError);
+  });
+});
+
+describe("easeOutCubic", () => {
+  it("starts at 0 and ends at 1", () => {
+    expect(easeOutCubic(0)).toBe(0);
+    expect(easeOutCubic(1)).toBe(1);
+  });
+
+  it("clamps input outside the 0-1 range", () => {
+    expect(easeOutCubic(-0.5)).toBe(0);
+    expect(easeOutCubic(1.5)).toBe(1);
+  });
+
+  it("is monotonically increasing and front-loaded (decelerating)", () => {
+    const a = easeOutCubic(0.2);
+    const b = easeOutCubic(0.5);
+    const c = easeOutCubic(0.8);
+    expect(a).toBeLessThan(b);
+    expect(b).toBeLessThan(c);
+    // ease-out: progress in the first half should exceed half of total progress
+    expect(b).toBeGreaterThan(0.5);
   });
 });
 

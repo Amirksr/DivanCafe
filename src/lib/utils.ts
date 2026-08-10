@@ -19,20 +19,27 @@ export function formatPrice(amount: number, locale: Locale): string {
 }
 
 /**
- * Formats a generic stat number (not a price), preserving one decimal
- * place when the input has a fractional part instead of rounding it away.
- * Use this for things like ratings (4.9); use formatPrice for Toman amounts.
+ * Formats a generic stat number (not a price) with a fixed decimal count,
+ * using locale-appropriate digits and grouping. Unlike formatPrice, the
+ * decimal count is explicit rather than inferred, so an in-progress
+ * count-up animation (which passes through many fractional intermediate
+ * values) still renders integers as integers.
  */
-export function formatNumber(value: number, locale: Locale): string {
+export function formatNumber(value: number, locale: Locale, decimals = 0): string {
   if (!Number.isFinite(value)) {
     throw new RangeError(`formatNumber: invalid value "${value}"`);
   }
-  const hasFraction = !Number.isInteger(value);
   const formatter = new Intl.NumberFormat(locale === "fa" ? "fa-IR" : "en-US", {
-    minimumFractionDigits: hasFraction ? 1 : 0,
-    maximumFractionDigits: 1,
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
   });
   return formatter.format(value);
+}
+
+/** Cubic ease-out: fast start, gentle settle — used by the stats count-up animation. */
+export function easeOutCubic(t: number): number {
+  const clamped = Math.min(Math.max(t, 0), 1);
+  return 1 - Math.pow(1 - clamped, 3);
 }
 
 /** Zero-pads a menu item's ledger index, e.g. 3 -> "٠٣" / "03". */

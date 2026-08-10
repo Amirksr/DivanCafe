@@ -1,7 +1,7 @@
 import type { Locale, Messages } from "@/lib/i18n";
 import { stats } from "@/lib/data";
-import { formatNumber } from "@/lib/utils";
 import Reveal from "@/components/Reveal";
+import CountUp from "@/components/CountUp";
 
 export default function Stats({ locale, dict }: { locale: Locale; dict: Messages }) {
   return (
@@ -10,8 +10,7 @@ export default function Stats({ locale, dict }: { locale: Locale; dict: Messages
         {stats.map((stat, index) => (
           <Reveal key={stat.key} delayMs={index * 80} className="text-center">
             <p className="font-mono text-3xl text-gold sm:text-4xl">
-              {formatNumber(stat.value, locale)}
-              {stat.suffix}
+              <CountUp target={stat.value} locale={locale} decimals={stat.decimals} suffix={stat.suffix} />
             </p>
             <p className="mt-2 text-xs uppercase tracking-wide text-parchment/60">
               {dict.stats[stat.key as keyof typeof dict.stats]}

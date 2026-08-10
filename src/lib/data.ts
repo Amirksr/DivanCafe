@@ -221,6 +221,15 @@ export const menuItems: MenuItem[] = [
 
 export const popularItems = menuItems.filter((item) => item.popular);
 
+/** Number of menu items per category, derived from menuItems so it can never go stale. */
+export const categoryCounts: Record<CategoryKey, number> = categoryOrder.reduce(
+  (acc, key) => {
+    acc[key] = menuItems.filter((item) => item.category === key).length;
+    return acc;
+  },
+  {} as Record<CategoryKey, number>
+);
+
 export interface AmbianceFeature {
   key: "interior" | "courtyard" | "roastery" | "library";
 }
@@ -249,8 +258,8 @@ export const galleryPhotos: GalleryPhoto[] = [
 ];
 
 export const stats = [
-  { key: "cups", value: 120000, suffix: "+" },
-  { key: "beans", value: 3, suffix: "" },
-  { key: "rating", value: 4.9, suffix: "" },
-  { key: "years", value: 4, suffix: "+" },
+  { key: "cups", value: 120000, suffix: "+", decimals: 0 },
+  { key: "beans", value: 3, suffix: "", decimals: 0 },
+  { key: "rating", value: 4.9, suffix: "", decimals: 1 },
+  { key: "years", value: 4, suffix: "+", decimals: 0 },
 ] as const;
