@@ -20,7 +20,7 @@ export default function NewsletterForm({ placeholder, cta }: NewsletterFormProps
       />
       <button
         type="submit"
-        className="focus-ring shrink-0 border border-copper px-3 py-2 text-sm text-copper-bright hover:bg-copper hover:text-ink"
+        className="focus-ring shrink-0 border border-copper px-3 py-2 text-sm text-copper-bright hover:bg-copper hover:text-charcoal"
       >
         {cta}
       </button>

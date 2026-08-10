@@ -135,7 +135,7 @@ export default function ContactForm({ locale, dict }: { locale: Locale; dict: Me
 
       <button
         type="submit"
-        className="focus-ring w-full rounded-sm bg-copper px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-copper-bright sm:w-auto"
+        className="focus-ring w-full rounded-sm bg-copper px-6 py-3 text-sm font-medium text-charcoal transition-colors hover:bg-copper-bright sm:w-auto"
       >
         {f.submit}
       </button>

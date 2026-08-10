@@ -25,7 +25,7 @@ export default function MenuTicket({ item, index, locale, dict, tone = "dark" }:
     <article
       className={cn(
         "group relative -mx-2 flex gap-4 rounded-sm border-b border-dashed px-2 py-5 transition-colors duration-200 last:border-none",
-        isLight ? "border-ink/15 hover:bg-black/[0.03]" : "border-ink-line hover:bg-white/[0.03]"
+        isLight ? "border-charcoal/15 hover:bg-black/[0.03]" : "border-ink-line hover:bg-white/[0.03]"
       )}
     >
       <span className="pt-1 font-mono text-xs text-copper-dim" aria-hidden="true">
@@ -33,7 +33,12 @@ export default function MenuTicket({ item, index, locale, dict, tone = "dark" }:
       </span>
 
       {photoSrc ? (
-        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-sm border border-ink-line/60">
+        <div
+          className={cn(
+            "relative h-14 w-14 shrink-0 overflow-hidden rounded-sm border",
+            isLight ? "border-charcoal-line/40" : "border-ink-line/60"
+          )}
+        >
           <Image src={photoSrc} alt="" fill sizes="56px" className="object-cover" />
         </div>
       ) : (
@@ -41,7 +46,7 @@ export default function MenuTicket({ item, index, locale, dict, tone = "dark" }:
           aria-hidden="true"
           className={cn(
             "flex h-14 w-14 shrink-0 items-center justify-center rounded-sm border",
-            isLight ? "border-ink/15 bg-black/[0.02] text-ink/40" : "border-ink-line bg-white/[0.02] text-parchment/40"
+            isLight ? "border-charcoal/15 bg-black/[0.02] text-charcoal/40" : "border-ink-line bg-white/[0.02] text-parchment/40"
           )}
         >
           <CategoryIcon className="h-6 w-6" strokeWidth={1.3} />
@@ -53,7 +58,7 @@ export default function MenuTicket({ item, index, locale, dict, tone = "dark" }:
           <h3
             className={cn(
               "text-lg",
-              isLight ? "text-ink" : "text-parchment",
+              isLight ? "text-charcoal" : "text-parchment",
               isFa ? "font-display-fa" : "font-display"
             )}
           >
@@ -63,7 +68,7 @@ export default function MenuTicket({ item, index, locale, dict, tone = "dark" }:
             {formatPrice(item.price, locale)} {dict.common.toman}
           </span>
         </div>
-        <p className={cn("mt-1 text-sm", isLight ? "text-ink/60" : "text-parchment/60")}>
+        <p className={cn("mt-1 text-sm", isLight ? "text-charcoal/60" : "text-parchment/60")}>
           {item.desc[locale]}
         </p>
 

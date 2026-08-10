@@ -4,6 +4,7 @@ import { getMessages, isLocale, localeDirection, locales, type Locale } from "@/
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { themeInitScript } from "@/lib/theme";
 
 /** CSS custom properties consumed by the font families declared in tailwind.config.ts. */
 const fontVariables: CSSProperties = {
@@ -47,8 +48,9 @@ export default function LocaleLayout({
   const dir = localeDirection[locale];
 
   return (
-    <html lang={locale} dir={dir}>
+    <html lang={locale} dir={dir} suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* eslint-disable-next-line @next/next/no-page-custom-font -- App Router layout head, not pages/_document */}
@@ -67,7 +69,7 @@ export default function LocaleLayout({
       >
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-2 focus:rounded focus:bg-copper focus:px-4 focus:py-2 focus:text-parchment"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-2 focus:rounded focus:bg-copper focus:px-4 focus:py-2 focus:text-charcoal"
         >
           {locale === "fa" ? "رفتن به محتوای اصلی" : "Skip to content"}
         </a>

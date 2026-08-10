@@ -6,12 +6,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Theme-swappable page roles: these read from CSS custom properties
+        // that flip between the dark and light palettes in globals.css.
         ink: {
+          DEFAULT: "rgb(var(--c-ink) / <alpha-value>)",
+          soft: "rgb(var(--c-ink-soft) / <alpha-value>)",
+          line: "rgb(var(--c-ink-line) / <alpha-value>)",
+        },
+        parchment: {
+          DEFAULT: "rgb(var(--c-parchment) / <alpha-value>)",
+          dim: "rgb(var(--c-parchment-dim) / <alpha-value>)",
+        },
+        // Fixed tones that never swap with the theme: the hero sits on a
+        // photo with a dark scrim (always dark/light text regardless of
+        // site theme), and a couple of accent panels/buttons intentionally
+        // invert against the page for contrast either way.
+        charcoal: {
           DEFAULT: "#1C1613",
           soft: "#241B16",
           line: "#3A2C22",
         },
-        parchment: {
+        bone: {
           DEFAULT: "#F2E9DD",
           dim: "#D9CBB6",
         },

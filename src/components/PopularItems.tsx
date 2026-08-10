@@ -9,7 +9,7 @@ export default function PopularItems({ locale, dict }: { locale: Locale; dict: M
   const isFa = locale === "fa";
 
   return (
-    <section className="bg-paper px-5 py-20 text-ink">
+    <section className="bg-paper px-5 py-20 text-charcoal">
       <div className="mx-auto max-w-3xl">
         <p className="text-xs uppercase tracking-widest2 text-copper">{dict.popular.eyebrow}</p>
         <h2
@@ -20,9 +20,9 @@ export default function PopularItems({ locale, dict }: { locale: Locale; dict: M
         >
           {dict.popular.title}
         </h2>
-        <p className="mt-3 max-w-lg text-ink/70">{dict.popular.description}</p>
+        <p className="mt-3 max-w-lg text-charcoal/70">{dict.popular.description}</p>
 
-        <Reveal delayMs={100} className="mt-8 rounded-sm border border-ink/10 bg-parchment px-6 sm:px-8">
+        <Reveal delayMs={100} className="mt-8 rounded-sm border border-charcoal/10 bg-bone px-6 sm:px-8">
           {popularItems.map((item, i) => (
             <MenuTicket key={item.id} item={item} index={i + 1} locale={locale} dict={dict} tone="light" />
           ))}
@@ -31,7 +31,7 @@ export default function PopularItems({ locale, dict }: { locale: Locale; dict: M
         <div className="mt-8 text-center">
           <Link
             href={`/${locale}/menu`}
-            className="focus-ring inline-block rounded-sm border border-ink/20 px-6 py-3 text-sm text-ink transition-all hover:-translate-y-0.5 hover:border-copper hover:text-copper"
+            className="focus-ring inline-block rounded-sm border border-charcoal/20 px-6 py-3 text-sm text-charcoal transition-all hover:-translate-y-0.5 hover:border-copper hover:text-copper"
           >
             {dict.popular.view_all}
           </Link>

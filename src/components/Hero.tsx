@@ -12,7 +12,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Messages 
   const isFa = locale === "fa";
 
   return (
-    <section className="relative overflow-hidden bg-ink px-5 pb-24 pt-16 sm:pt-24">
+    <section className="relative overflow-hidden bg-charcoal px-5 pb-24 pt-16 sm:pt-24">
       <Image
         src={`https://images.unsplash.com/photo-${HERO_PHOTO_ID}?w=1600&q=70&auto=format&fit=crop`}
         alt=""
@@ -24,7 +24,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Messages 
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink via-ink/85 to-ink"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/85 to-charcoal"
       />
       <div className="pointer-events-none absolute inset-0 opacity-[0.08]">
         <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,#D4A24C_0,transparent_35%),radial-gradient(circle_at_80%_60%,#B8622C_0,transparent_40%)]" />
@@ -35,7 +35,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Messages 
           <p className="text-xs uppercase tracking-widest2 text-gold">{dict.hero.eyebrow}</p>
           <h1
             className={cn(
-              "mt-4 text-balance text-6xl leading-[0.95] text-parchment sm:text-7xl",
+              "mt-4 text-balance text-6xl leading-[0.95] text-bone sm:text-7xl",
               isFa ? "font-display-fa" : "font-display"
             )}
           >
@@ -49,20 +49,20 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Messages 
           >
             {dict.hero.subtitle}
           </p>
-          <p className="mt-6 max-w-md text-balance text-base leading-relaxed text-parchment/75">
+          <p className="mt-6 max-w-md text-balance text-base leading-relaxed text-bone/75">
             {dict.hero.description}
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <Link
               href={`/${locale}/menu`}
-              className="focus-ring rounded-sm bg-copper px-6 py-3 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:bg-copper-bright hover:shadow-lg hover:shadow-copper/20"
+              className="focus-ring rounded-sm bg-copper px-6 py-3 text-sm font-medium text-charcoal transition-all hover:-translate-y-0.5 hover:bg-copper-bright hover:shadow-lg hover:shadow-copper/20"
             >
               {dict.hero.cta_menu}
             </Link>
             <Link
               href={`/${locale}/contact`}
-              className="focus-ring rounded-sm border border-parchment/30 px-6 py-3 text-sm text-parchment/90 transition-all hover:-translate-y-0.5 hover:border-gold hover:text-gold"
+              className="focus-ring rounded-sm border border-bone/30 px-6 py-3 text-sm text-bone/90 transition-all hover:-translate-y-0.5 hover:border-gold hover:text-gold"
             >
               {dict.hero.cta_reserve}
             </Link>
@@ -70,17 +70,17 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Messages 
         </Reveal>
 
         <Reveal delayMs={150} className="relative mx-auto flex h-72 w-72 items-center justify-center sm:h-96 sm:w-96">
-          <div aria-hidden="true" className="absolute inset-0 rounded-full border border-ink-line" />
-          <div aria-hidden="true" className="absolute inset-6 rounded-full border border-dashed border-ink-line" />
+          <div aria-hidden="true" className="absolute inset-0 rounded-full border border-charcoal-line" />
+          <div aria-hidden="true" className="absolute inset-6 rounded-full border border-dashed border-charcoal-line" />
 
           {/* steam - centered above the cup */}
           <div
             aria-hidden="true"
             className="absolute bottom-[58%] start-1/2 flex -translate-x-1/2 gap-3 rtl:translate-x-1/2"
           >
-            <span className="h-16 w-2 rounded-full bg-parchment/60 blur-[2px] animate-steam" />
-            <span className="h-20 w-2 rounded-full bg-parchment/60 blur-[2px] animate-steam-delay" />
-            <span className="h-16 w-2 rounded-full bg-parchment/60 blur-[2px] animate-steam" />
+            <span className="h-16 w-2 rounded-full bg-bone/60 blur-[2px] animate-steam" />
+            <span className="h-20 w-2 rounded-full bg-bone/60 blur-[2px] animate-steam-delay" />
+            <span className="h-16 w-2 rounded-full bg-bone/60 blur-[2px] animate-steam" />
           </div>
 
           {/* cup */}
@@ -100,10 +100,10 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Messages 
             <line x1="20" y1="40" x2="140" y2="40" stroke="currentColor" strokeWidth="4" />
           </svg>
 
-          <div className="absolute -bottom-4 -end-4 origin-center animate-stamp rotate-[-8deg] rounded-full border-2 border-gold bg-ink/80 px-5 py-4 text-center shadow-lg">
+          <div className="absolute -bottom-4 -end-4 origin-center animate-stamp rotate-[-8deg] rounded-full border-2 border-gold bg-charcoal/80 px-5 py-4 text-center shadow-lg">
             <RingStamp className="absolute inset-0 h-full w-full text-gold" />
             <p className="relative text-[10px] uppercase tracking-widest2 text-gold">{dict.hero.open_badge}</p>
-            <p className="relative mt-1 font-mono text-sm text-parchment">{dict.hero.hours_today}</p>
+            <p className="relative mt-1 font-mono text-sm text-bone">{dict.hero.hours_today}</p>
           </div>
         </Reveal>
       </div>

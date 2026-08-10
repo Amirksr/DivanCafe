@@ -2,13 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark theme (default) — RGB triplets consumed by tailwind.config.ts colors */
 :root {
   color-scheme: dark;
+  --c-ink: 28 22 19;
+  --c-ink-soft: 36 27 22;
+  --c-ink-line: 58 44 34;
+  --c-parchment: 242 233 221;
+  --c-parchment-dim: 217 203 182;
+}
+
+/* Light theme override, applied via a .light class on <html> */
+html.light {
+  color-scheme: light;
+  --c-ink: 250 245 236;
+  --c-ink-soft: 241 230 211;
+  --c-ink-line: 221 203 175;
+  --c-parchment: 28 22 19;
+  --c-parchment-dim: 107 91 74;
 }
 
 body {
-  background-color: #1c1613;
-  color: #f2e9dd;
+  background-color: rgb(var(--c-ink));
+  color: rgb(var(--c-parchment));
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {

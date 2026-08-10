@@ -6,6 +6,7 @@ import { useState } from "react";
 import type { Locale, Messages } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import ThemeToggle from "@/components/ThemeToggle";
 
 interface HeaderProps {
   locale: Locale;
@@ -56,10 +57,11 @@ export default function Header({ locale, dict }: HeaderProps) {
         </nav>
 
         <div className="hidden items-center gap-4 md:flex">
+          <ThemeToggle />
           <LanguageSwitcher locale={locale} />
           <Link
             href={`/${locale}/contact`}
-            className="focus-ring rounded-sm border border-copper px-4 py-2 text-sm text-copper-bright transition-colors hover:bg-copper hover:text-ink"
+            className="focus-ring rounded-sm border border-copper px-4 py-2 text-sm text-copper-bright transition-colors hover:bg-copper hover:text-charcoal"
           >
             {dict.nav.reserve}
           </Link>
@@ -105,7 +107,10 @@ export default function Header({ locale, dict }: HeaderProps) {
             ))}
           </ul>
           <div className="mt-5 flex items-center justify-between">
-            <LanguageSwitcher locale={locale} />
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
+              <LanguageSwitcher locale={locale} />
+            </div>
             <Link
               href={`/${locale}/contact`}
               className="focus-ring rounded-sm border border-copper px-4 py-2 text-sm text-copper-bright"

@@ -42,7 +42,7 @@ export default function MenuBrowser({ locale, dict }: { locale: Locale; dict: Me
               className={cn(
                 "focus-ring rounded-full border px-4 py-1.5 text-sm transition-colors",
                 selected
-                  ? "border-copper bg-copper text-ink"
+                  ? "border-copper bg-copper text-charcoal"
                   : "border-ink-line text-parchment/70 hover:border-copper/60 hover:text-parchment"
               )}
             >

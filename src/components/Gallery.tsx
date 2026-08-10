@@ -35,9 +35,9 @@ export default function Gallery({ locale, dict }: { locale: Locale; dict: Messag
                 />
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/10 to-transparent"
                 />
-                <figcaption className="relative p-4 text-xs text-parchment/90">
+                <figcaption className="relative p-4 text-xs text-bone/90">
                   {translate(dict, photo.captionKey)}
                 </figcaption>
               </figure>
