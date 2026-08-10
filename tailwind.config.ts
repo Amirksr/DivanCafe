@@ -66,11 +66,31 @@ const config: Config = {
           "60%": { transform: "scale(0.95) rotate(-8deg)", opacity: "0.9" },
           "100%": { transform: "scale(1) rotate(-8deg)", opacity: "1" },
         },
+        sway: {
+          "0%, 100%": { transform: "rotate(-6deg)" },
+          "50%": { transform: "rotate(6deg)" },
+        },
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-4deg)" },
+          "50%": { transform: "rotate(4deg)" },
+        },
+        jiggle: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-2px)" },
+        },
+        glint: {
+          "0%, 100%": { opacity: "0.25" },
+          "50%": { opacity: "0.9" },
+        },
       },
       animation: {
         steam: "steam 3.2s ease-in-out infinite",
         "steam-delay": "steam 3.2s ease-in-out 1.1s infinite",
         stamp: "stampIn 0.5s cubic-bezier(0.2,0.8,0.2,1) forwards",
+        sway: "sway 1.4s ease-in-out infinite",
+        wiggle: "wiggle 0.5s ease-in-out infinite",
+        jiggle: "jiggle 0.6s ease-in-out infinite",
+        glint: "glint 1.2s ease-in-out infinite",
       },
     },
   },

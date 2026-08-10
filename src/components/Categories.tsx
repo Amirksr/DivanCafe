@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Locale, Messages } from "@/lib/i18n";
-import { categoryOrder } from "@/lib/data";
-import { cn } from "@/lib/utils";
+import { categoryOrder, categoryCounts } from "@/lib/data";
+import { cn, formatNumber } from "@/lib/utils";
 import { categoryIcons } from "@/components/icons";
 import Reveal from "@/components/Reveal";
 
@@ -34,7 +34,7 @@ export default function Categories({ locale, dict }: { locale: Locale; dict: Mes
                 >
                   <Icon
                     aria-hidden="true"
-                    className="h-7 w-7 text-copper-bright transition-transform duration-300 group-hover:scale-110"
+                    className="h-8 w-8 text-copper-bright transition-transform duration-300 group-hover:scale-110"
                   />
                   <p
                     className={cn(
@@ -44,7 +44,9 @@ export default function Categories({ locale, dict }: { locale: Locale; dict: Mes
                   >
                     {item.name}
                   </p>
-                  <p className="mt-1 font-mono text-xs text-parchment/50">{item.count}</p>
+                  <p className="mt-1 font-mono text-xs text-parchment/50">
+                    {formatNumber(categoryCounts[key], locale)} {item.unit}
+                  </p>
                   <span
                     aria-hidden="true"
                     className="absolute end-4 top-4 text-copper opacity-0 transition-opacity group-hover:opacity-100 rtl:rotate-180"

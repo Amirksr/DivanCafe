@@ -32,12 +32,30 @@
     "title": "Browse the menu",
     "description": "From single-origin espresso to a full Persian breakfast — everything has its page in this ledger.",
     "items": {
-      "coffee": { "name": "Coffee & Espresso", "count": "18 drinks" },
-      "tea": { "name": "Tea & Infusions", "count": "12 drinks" },
-      "breakfast": { "name": "Breakfast", "count": "9 dishes" },
-      "pastry": { "name": "Pastry & Dessert", "count": "14 items" },
-      "cold": { "name": "Cold Drinks", "count": "10 drinks" },
-      "brunch": { "name": "Mains", "count": "11 dishes" }
+      "coffee": {
+        "name": "Coffee & Espresso",
+        "unit": "drinks"
+      },
+      "tea": {
+        "name": "Tea & Infusions",
+        "unit": "drinks"
+      },
+      "breakfast": {
+        "name": "Breakfast",
+        "unit": "dishes"
+      },
+      "pastry": {
+        "name": "Pastry & Dessert",
+        "unit": "items"
+      },
+      "cold": {
+        "name": "Cold Drinks",
+        "unit": "drinks"
+      },
+      "brunch": {
+        "name": "Mains",
+        "unit": "dishes"
+      }
     }
   },
   "popular": {
@@ -57,10 +75,22 @@
     "title": "A house built for staying",
     "description": "Divan lives inside a restored Isfahani house — brick vaults, a central courtyard, and light that changes color by the hour. A place to work, meet friends, or just sit with a book.",
     "features": {
-      "interior": { "title": "Interior", "desc": "Original brick vaults with walnut-wood tables" },
-      "courtyard": { "title": "Courtyard", "desc": "Seating beneath the orange tree each spring" },
-      "roastery": { "title": "Glass roastery", "desc": "Watch the beans roast up close" },
-      "library": { "title": "Reading corner", "desc": "A shelf of classic and modern Persian poetry" }
+      "interior": {
+        "title": "Interior",
+        "desc": "Original brick vaults with walnut-wood tables"
+      },
+      "courtyard": {
+        "title": "Courtyard",
+        "desc": "Seating beneath the orange tree each spring"
+      },
+      "roastery": {
+        "title": "Glass roastery",
+        "desc": "Watch the beans roast up close"
+      },
+      "library": {
+        "title": "Reading corner",
+        "desc": "A shelf of classic and modern Persian poetry"
+      }
     }
   },
   "hours": {
@@ -98,15 +128,33 @@
     "p3": "We source beans from three regions — Ethiopia, Colombia, and Brazil — and roast weekly in our own glass-walled roastery.",
     "values_title": "What we hold to",
     "values": {
-      "quality": { "title": "No compromise on quality", "desc": "Fresh beans, local dairy, and produce sourced daily." },
-      "craft": { "title": "Slow craft", "desc": "Every drink is made by hand, with attention." },
-      "community": { "title": "A gathering place", "desc": "Poetry nights and local artists, hosted regularly." }
+      "quality": {
+        "title": "No compromise on quality",
+        "desc": "Fresh beans, local dairy, and produce sourced daily."
+      },
+      "craft": {
+        "title": "Slow craft",
+        "desc": "Every drink is made by hand, with attention."
+      },
+      "community": {
+        "title": "A gathering place",
+        "desc": "Poetry nights and local artists, hosted regularly."
+      }
     },
     "team_title": "The people of Divan",
     "team": {
-      "roaster": { "name": "Sara Ahmadi", "role": "Head of Coffee & Roastmaster" },
-      "chef": { "name": "Amirhossein Rezaei", "role": "Executive Chef" },
-      "host": { "name": "Negar Karimi", "role": "Guest Experience Lead" }
+      "roaster": {
+        "name": "Sara Ahmadi",
+        "role": "Head of Coffee & Roastmaster"
+      },
+      "chef": {
+        "name": "Amirhossein Rezaei",
+        "role": "Executive Chef"
+      },
+      "host": {
+        "name": "Negar Karimi",
+        "role": "Guest Experience Lead"
+      }
     }
   },
   "contact_page": {
