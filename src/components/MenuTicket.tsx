@@ -3,6 +3,7 @@ import type { Locale, Messages } from "@/lib/i18n";
 import type { MenuItem } from "@/lib/data";
 import { cn, formatPrice, ledgerNumber } from "@/lib/utils";
 import { categoryIcons } from "@/components/icons";
+import OrderButton from "@/components/OrderButton";
 
 interface MenuTicketProps {
   item: MenuItem;
@@ -72,13 +73,12 @@ export default function MenuTicket({ item, index, locale, dict, tone = "dark" }:
           {item.desc[locale]}
         </p>
 
-        {(item.isNew || item.vegetarian || item.popular) && (
-          <div className="mt-2 flex flex-wrap gap-2">
-            {item.isNew && <Tag label={dict.common.new} tone="gold" />}
-            {item.vegetarian && <Tag label={dict.common.vegetarian} tone="sage" />}
-            {item.popular && <Tag label={dict.common.signature} tone="copper" />}
-          </div>
-        )}
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          {item.isNew && <Tag label={dict.common.new} tone="gold" />}
+          {item.vegetarian && <Tag label={dict.common.vegetarian} tone="sage" />}
+          {item.popular && <Tag label={dict.common.signature} tone="copper" />}
+          <OrderButton itemId={item.id} label={dict.quick_view.order_button} tone={tone} />
+        </div>
       </div>
     </article>
   );

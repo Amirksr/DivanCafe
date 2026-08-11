@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { themeInitScript } from "@/lib/theme";
+import { CartProvider } from "@/components/CartProvider";
+import QuickViewModal from "@/components/QuickViewModal";
 
 /** CSS custom properties consumed by the font families declared in tailwind.config.ts. */
 const fontVariables: CSSProperties = {
@@ -73,9 +75,12 @@ export default function LocaleLayout({
         >
           {locale === "fa" ? "رفتن به محتوای اصلی" : "Skip to content"}
         </a>
-        <Header locale={locale} dict={dict} />
-        <main id="main">{children}</main>
-        <Footer locale={locale} dict={dict} />
+        <CartProvider>
+          <Header locale={locale} dict={dict} />
+          <main id="main">{children}</main>
+          <Footer locale={locale} dict={dict} />
+          <QuickViewModal locale={locale} dict={dict} />
+        </CartProvider>
       </body>
     </html>
   );
