@@ -7,6 +7,7 @@ import type { Locale, Messages } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ThemeToggle from "@/components/ThemeToggle";
+import CartButton from "@/components/CartButton";
 
 interface HeaderProps {
   locale: Locale;
@@ -58,6 +59,7 @@ export default function Header({ locale, dict }: HeaderProps) {
 
         <div className="hidden items-center gap-4 md:flex">
           <ThemeToggle />
+          <CartButton locale={locale} label={dict.nav.cart} />
           <LanguageSwitcher locale={locale} />
           <Link
             href={`/${locale}/contact`}
@@ -67,28 +69,31 @@ export default function Header({ locale, dict }: HeaderProps) {
           </Link>
         </div>
 
-        <button
-          type="button"
-          className="focus-ring inline-flex flex-col gap-1.5 p-2 md:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span
-            className={cn(
-              "block h-px w-6 bg-parchment transition-transform",
-              open && "translate-y-[7px] rotate-45"
-            )}
-          />
-          <span className={cn("block h-px w-6 bg-parchment transition-opacity", open && "opacity-0")} />
-          <span
-            className={cn(
-              "block h-px w-6 bg-parchment transition-transform",
-              open && "-translate-y-[7px] -rotate-45"
-            )}
-          />
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <CartButton locale={locale} label={dict.nav.cart} />
+          <button
+            type="button"
+            className="focus-ring inline-flex flex-col gap-1.5 p-2"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span
+              className={cn(
+                "block h-px w-6 bg-parchment transition-transform",
+                open && "translate-y-[7px] rotate-45"
+              )}
+            />
+            <span className={cn("block h-px w-6 bg-parchment transition-opacity", open && "opacity-0")} />
+            <span
+              className={cn(
+                "block h-px w-6 bg-parchment transition-transform",
+                open && "-translate-y-[7px] -rotate-45"
+              )}
+            />
+          </button>
+        </div>
       </div>
 
       {open && (
