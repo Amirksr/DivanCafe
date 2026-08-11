@@ -55,7 +55,7 @@ describe("CartView", () => {
     renderCart();
     act(() => screen.getByText("seed-espresso").click());
     const plusButtons = screen.getAllByLabelText("+");
-    act(() => plusButtons[0].click());
+    act(() => plusButtons[0]?.click());
     // now 3x espresso = 195,000
     expect(screen.getByTestId("line-total")).toHaveTextContent("195,000");
   });

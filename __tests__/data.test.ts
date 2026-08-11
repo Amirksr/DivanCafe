@@ -1,4 +1,4 @@
-import { categoryCounts, categoryOrder, menuItems } from "@/lib/data";
+import { categoryCounts, categoryOrder, menuItems, ambianceFeatures, spacePhotos } from "@/lib/data";
 
 describe("categoryCounts", () => {
   it("has an entry for every category in categoryOrder", () => {
@@ -22,6 +22,28 @@ describe("categoryCounts", () => {
   it("has no empty categories", () => {
     for (const key of categoryOrder) {
       expect(categoryCounts[key]).toBeGreaterThan(0);
+    }
+  });
+});
+
+describe("spacePhotos", () => {
+  it("has an entry for every ambiance feature", () => {
+    for (const key of ambianceFeatures) {
+      expect(spacePhotos[key]).toBeDefined();
+    }
+  });
+
+  it("gives every space at least one photo", () => {
+    for (const key of ambianceFeatures) {
+      expect(spacePhotos[key].length).toBeGreaterThan(0);
+    }
+  });
+
+  it("every photo entry has a usable source (unsplashId or localPhoto)", () => {
+    for (const key of ambianceFeatures) {
+      for (const photo of spacePhotos[key]) {
+        expect(photo.unsplashId ?? photo.localPhoto).toBeTruthy();
+      }
     }
   });
 });

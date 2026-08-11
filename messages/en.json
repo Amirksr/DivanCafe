@@ -199,5 +199,10 @@
     "added": "Added to cart",
     "close": "Close",
     "order_button": "Order"
+  },
+  "space_page": {
+    "eyebrow": "A closer look",
+    "back": "Back to the room",
+    "more_photos_note": "More photos of this space are on the way."
   }
 }

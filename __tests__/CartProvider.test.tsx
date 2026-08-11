@@ -37,7 +37,7 @@ describe("useCart", () => {
     expect(result.current.totalCount).toBe(2);
     expect(result.current.totalPrice).toBe(espresso.price * 2);
     expect(result.current.lines).toHaveLength(1);
-    expect(result.current.lines[0].item.id).toBe(espresso.id);
+    expect(result.current.lines[0]?.item.id).toBe(espresso.id);
   });
 
   it("updates quantity and removes an item", async () => {

@@ -234,12 +234,33 @@ export interface AmbianceFeature {
   key: "interior" | "courtyard" | "roastery" | "library";
 }
 
-export const ambianceFeatures: AmbianceFeature["key"][] = [
+export type SpaceKey = AmbianceFeature["key"];
+
+export const ambianceFeatures: SpaceKey[] = [
   "interior",
   "courtyard",
   "roastery",
   "library",
 ];
+
+export interface SpacePhoto {
+  /** images.unsplash.com photo ID — Unsplash License, free for commercial use. */
+  unsplashId?: string;
+  /** Path under /public for a user-supplied photo. */
+  localPhoto?: string;
+}
+
+/**
+ * Photos for each physical space, shown on its detail page. Currently one
+ * per space (reused from the homepage gallery); designed to hold several
+ * once more angles are supplied.
+ */
+export const spacePhotos: Record<SpaceKey, SpacePhoto[]> = {
+  interior: [{ unsplashId: "1749871615234-98bff62995ba" }],
+  courtyard: [{ unsplashId: "1759050483129-512154ddd640" }],
+  roastery: [{ unsplashId: "1690983325192-a4c13c2e331d" }],
+  library: [{ unsplashId: "1560976813-060185623241" }],
+};
 
 export interface GalleryPhoto {
   id: string;

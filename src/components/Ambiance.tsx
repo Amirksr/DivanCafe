@@ -1,12 +1,14 @@
+import Link from "next/link";
 import type { Locale, Messages } from "@/lib/i18n";
 import { ambianceFeatures } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import Reveal from "@/components/Reveal";
 
 export default function Ambiance({ locale, dict }: { locale: Locale; dict: Messages }) {
   const isFa = locale === "fa";
 
   return (
-    <section className="bg-ink-soft px-5 py-20">
+    <section id="ambiance" className="scroll-mt-20 bg-ink-soft px-5 py-20">
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
         <div>
           <p className="text-xs uppercase tracking-widest2 text-gold">{dict.ambiance.eyebrow}</p>
@@ -36,15 +38,26 @@ export default function Ambiance({ locale, dict }: { locale: Locale; dict: Messa
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          {ambianceFeatures.map((key) => {
+          {ambianceFeatures.map((key, index) => {
             const feature = dict.ambiance.features[key];
             return (
-              <div key={key} className="rounded-sm border border-ink-line bg-ink p-5">
-                <p className={cn("text-base text-parchment", isFa ? "font-display-fa" : "font-display")}>
-                  {feature.title}
-                </p>
-                <p className="mt-1.5 text-xs leading-relaxed text-parchment/60">{feature.desc}</p>
-              </div>
+              <Reveal key={key} delayMs={index * 80}>
+                <Link
+                  href={`/${locale}/spaces/${key}`}
+                  className="focus-ring group relative block rounded-sm border border-ink-line bg-ink p-5 transition-colors hover:border-copper"
+                >
+                  <p className={cn("text-base text-parchment", isFa ? "font-display-fa" : "font-display")}>
+                    {feature.title}
+                  </p>
+                  <p className="mt-1.5 pe-5 text-xs leading-relaxed text-parchment/60">{feature.desc}</p>
+                  <span
+                    aria-hidden="true"
+                    className="absolute end-4 top-5 text-copper-bright opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100 rtl:rotate-180 rtl:group-hover:-translate-x-0.5"
+                  >
+                    →
+                  </span>
+                </Link>
+              </Reveal>
             );
           })}
         </div>
