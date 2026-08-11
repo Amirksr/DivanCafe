@@ -5,26 +5,23 @@ import { cn } from "@/lib/utils";
 import RingStamp from "@/components/RingStamp";
 import Reveal from "@/components/Reveal";
 
-/** Coffee-with-cream photo (Unsplash License, free for commercial use). */
-const HERO_PHOTO_ID = "1762943483387-e9fb0ada8d53";
-
 export default function Hero({ locale, dict }: { locale: Locale; dict: Messages }) {
   const isFa = locale === "fa";
 
   return (
     <section className="relative overflow-hidden bg-charcoal px-5 pb-24 pt-16 sm:pt-24">
       <Image
-        src={`https://images.unsplash.com/photo-${HERO_PHOTO_ID}?w=1600&q=70&auto=format&fit=crop`}
+        src="/gallery-photos/exterior.webp"
         alt=""
         aria-hidden="true"
         fill
         priority
         sizes="100vw"
-        className="pointer-events-none object-cover opacity-20"
+        className="pointer-events-none object-cover opacity-30"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/85 to-charcoal"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/75 to-charcoal"
       />
       <div className="pointer-events-none absolute inset-0 opacity-[0.08]">
         <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,#D4A24C_0,transparent_35%),radial-gradient(circle_at_80%_60%,#B8622C_0,transparent_40%)]" />
