@@ -8,7 +8,8 @@
     "menu": "Menu",
     "about": "About Divan",
     "contact": "Contact",
-    "reserve": "Reserve a table"
+    "reserve": "Reserve a table",
+    "cart": "Cart"
   },
   "hero": {
     "eyebrow": "Coffeehouse & Kitchen — Est. 2022",
@@ -180,5 +181,23 @@
     "signature": "Divan signature",
     "vegetarian": "Vegetarian",
     "language": "Language"
+  },
+  "cart": {
+    "title": "Your Order",
+    "empty": "Your cart is empty.",
+    "empty_cta": "Browse the menu",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "remove": "Remove",
+    "checkout": "Place Order",
+    "checkout_note": "This is a demo — no real order is placed.",
+    "continue_shopping": "Add more items",
+    "quantity": "Quantity"
+  },
+  "quick_view": {
+    "add_to_cart": "Add to cart",
+    "added": "Added to cart",
+    "close": "Close",
+    "order_button": "Order"
   }
 }
