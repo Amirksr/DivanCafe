@@ -256,26 +256,28 @@ export interface SpacePhoto {
  * once more angles are supplied.
  */
 export const spacePhotos: Record<SpaceKey, SpacePhoto[]> = {
-  interior: [{ unsplashId: "1749871615234-98bff62995ba" }],
-  courtyard: [{ unsplashId: "1759050483129-512154ddd640" }],
-  roastery: [{ unsplashId: "1690983325192-a4c13c2e331d" }],
-  library: [{ unsplashId: "1560976813-060185623241" }],
+  interior: [{ localPhoto: "/gallery-photos/interior.webp" }],
+  courtyard: [{ localPhoto: "/gallery-photos/courtyard.webp" }],
+  roastery: [{ localPhoto: "/gallery-photos/roastery.webp" }],
+  library: [{ localPhoto: "/gallery-photos/library.webp" }],
 };
 
 export interface GalleryPhoto {
   id: string;
   captionKey: string;
   /** images.unsplash.com photo ID — Unsplash License, free for commercial use. */
-  unsplashId: string;
+  unsplashId?: string;
+  /** Path under /public for a user-supplied photo. */
+  localPhoto?: string;
 }
 
 export const galleryPhotos: GalleryPhoto[] = [
-  { id: "g1", captionKey: "ambiance.features.interior.title", unsplashId: "1749871615234-98bff62995ba" },
-  { id: "g2", captionKey: "ambiance.features.courtyard.title", unsplashId: "1759050483129-512154ddd640" },
-  { id: "g3", captionKey: "ambiance.features.roastery.title", unsplashId: "1690983325192-a4c13c2e331d" },
-  { id: "g4", captionKey: "ambiance.features.library.title", unsplashId: "1560976813-060185623241" },
+  { id: "g1", captionKey: "ambiance.features.interior.title", localPhoto: "/gallery-photos/interior.webp" },
+  { id: "g2", captionKey: "ambiance.features.courtyard.title", localPhoto: "/gallery-photos/courtyard.webp" },
+  { id: "g3", captionKey: "ambiance.features.roastery.title", localPhoto: "/gallery-photos/roastery.webp" },
+  { id: "g4", captionKey: "ambiance.features.library.title", localPhoto: "/gallery-photos/library.webp" },
   { id: "g5", captionKey: "categories.items.coffee.name", unsplashId: "1426174840074-541ae41efdb9" },
-  { id: "g6", captionKey: "categories.items.pastry.name", unsplashId: "1758900450186-e829f72d25fb" },
+  { id: "g6", captionKey: "categories.items.pastry.name", localPhoto: "/gallery-photos/pastry.webp" },
 ];
 
 export const stats = [

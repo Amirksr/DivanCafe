@@ -1,4 +1,4 @@
-import { categoryCounts, categoryOrder, menuItems, ambianceFeatures, spacePhotos } from "@/lib/data";
+import { categoryCounts, categoryOrder, menuItems, ambianceFeatures, spacePhotos, galleryPhotos } from "@/lib/data";
 
 describe("categoryCounts", () => {
   it("has an entry for every category in categoryOrder", () => {
@@ -45,5 +45,22 @@ describe("spacePhotos", () => {
         expect(photo.unsplashId ?? photo.localPhoto).toBeTruthy();
       }
     }
+  });
+});
+
+describe("galleryPhotos", () => {
+  it("every photo has a usable source (unsplashId or localPhoto)", () => {
+    for (const photo of galleryPhotos) {
+      expect(photo.unsplashId ?? photo.localPhoto).toBeTruthy();
+    }
+  });
+
+  it("has exactly 6 photos", () => {
+    expect(galleryPhotos).toHaveLength(6);
+  });
+
+  it("has no duplicate ids", () => {
+    const ids = galleryPhotos.map((p) => p.id);
+    expect(new Set(ids).size).toBe(ids.length);
   });
 });

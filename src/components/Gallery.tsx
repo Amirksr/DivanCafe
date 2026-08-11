@@ -23,26 +23,32 @@ export default function Gallery({ locale, dict }: { locale: Locale; dict: Messag
         <p className="mt-3 max-w-xl text-parchment/70">{dict.gallery.description}</p>
 
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {galleryPhotos.map((photo, i) => (
-            <Reveal key={photo.id} delayMs={i * 70}>
-              <figure className="group relative flex aspect-square items-end overflow-hidden rounded-sm border border-ink-line">
-                <Image
-                  src={`https://images.unsplash.com/photo-${photo.unsplashId}?w=800&q=80&auto=format&fit=crop`}
-                  alt={translate(dict, photo.captionKey)}
-                  fill
-                  sizes="(min-width: 640px) 33vw, 50vw"
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                />
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/10 to-transparent"
-                />
-                <figcaption className="relative p-4 text-xs text-bone/90">
-                  {translate(dict, photo.captionKey)}
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
+          {galleryPhotos.map((photo, i) => {
+            const src = photo.unsplashId
+              ? `https://images.unsplash.com/photo-${photo.unsplashId}?w=800&q=80&auto=format&fit=crop`
+              : photo.localPhoto;
+            if (!src) return null;
+            return (
+              <Reveal key={photo.id} delayMs={i * 70}>
+                <figure className="group relative flex aspect-square items-end overflow-hidden rounded-sm border border-ink-line">
+                  <Image
+                    src={src}
+                    alt={translate(dict, photo.captionKey)}
+                    fill
+                    sizes="(min-width: 640px) 33vw, 50vw"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/10 to-transparent"
+                  />
+                  <figcaption className="relative p-4 text-xs text-bone/90">
+                    {translate(dict, photo.captionKey)}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
