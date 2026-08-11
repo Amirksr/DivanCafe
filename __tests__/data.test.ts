@@ -46,6 +46,20 @@ describe("spacePhotos", () => {
       }
     }
   });
+
+  it("has the expected photo count per space", () => {
+    expect(spacePhotos.interior).toHaveLength(7);
+    expect(spacePhotos.courtyard).toHaveLength(6);
+    expect(spacePhotos.roastery).toHaveLength(4);
+    expect(spacePhotos.library).toHaveLength(4);
+  });
+
+  it("has no duplicate photo paths within a space", () => {
+    for (const key of ambianceFeatures) {
+      const paths = spacePhotos[key].map((p) => p.localPhoto ?? p.unsplashId);
+      expect(new Set(paths).size).toBe(paths.length);
+    }
+  });
 });
 
 describe("galleryPhotos", () => {

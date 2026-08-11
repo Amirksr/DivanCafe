@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getMessages, isLocale, type Locale } from "@/lib/i18n";
 import { ambianceFeatures, spacePhotos, type SpaceKey } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import Reveal from "@/components/Reveal";
 
 export function generateStaticParams() {
   return ambianceFeatures.map((key) => ({ key }));
@@ -11,6 +12,12 @@ export function generateStaticParams() {
 
 function isSpaceKey(value: string): value is SpaceKey {
   return (ambianceFeatures as string[]).includes(value);
+}
+
+function photoSrc(photo: { unsplashId?: string; localPhoto?: string }): string | undefined {
+  return photo.unsplashId
+    ? `https://images.unsplash.com/photo-${photo.unsplashId}?w=1200&q=78&auto=format&fit=crop`
+    : photo.localPhoto;
 }
 
 export default function SpacePage({
@@ -25,6 +32,8 @@ export default function SpacePage({
   const isFa = locale === "fa";
   const feature = dict.ambiance.features[key];
   const photos = spacePhotos[key];
+  const [hero, ...rest] = photos;
+  const heroSrc = hero ? photoSrc(hero) : undefined;
 
   return (
     <div className="px-5 py-20">
@@ -48,25 +57,35 @@ export default function SpacePage({
         </h1>
         <p className="mt-4 max-w-xl text-parchment/70">{feature.desc}</p>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {photos.map((photo, i) => {
-            const src = photo.unsplashId
-              ? `https://images.unsplash.com/photo-${photo.unsplashId}?w=1000&q=78&auto=format&fit=crop`
-              : photo.localPhoto;
-            if (!src) return null;
-            return (
-              <div key={i} className="relative aspect-[4/3] overflow-hidden rounded-sm border border-ink-line">
-                <Image
-                  src={src}
-                  alt=""
-                  fill
-                  sizes="(min-width: 640px) 480px, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            );
-          })}
-        </div>
+        {heroSrc && (
+          <Reveal className="mt-10">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-sm border border-ink-line">
+              <Image src={heroSrc} alt="" fill sizes="(min-width: 1024px) 960px, 100vw" className="object-cover" priority />
+            </div>
+          </Reveal>
+        )}
+
+        {rest.length > 0 && (
+          <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {rest.map((photo, i) => {
+              const src = photoSrc(photo);
+              if (!src) return null;
+              return (
+                <Reveal key={i} delayMs={i * 60}>
+                  <div className="relative aspect-square overflow-hidden rounded-sm border border-ink-line">
+                    <Image
+                      src={src}
+                      alt=""
+                      fill
+                      sizes="(min-width: 640px) 33vw, 50vw"
+                      className="object-cover transition-transform duration-500 ease-out hover:scale-110"
+                    />
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        )}
 
         {photos.length < 2 && (
           <p className="mt-6 text-center text-xs text-parchment/40">{dict.space_page.more_photos_note}</p>

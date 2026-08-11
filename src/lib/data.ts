@@ -256,10 +256,10 @@ export interface SpacePhoto {
  * once more angles are supplied.
  */
 export const spacePhotos: Record<SpaceKey, SpacePhoto[]> = {
-  interior: [{ localPhoto: "/gallery-photos/interior.webp" }],
-  courtyard: [{ localPhoto: "/gallery-photos/courtyard.webp" }],
-  roastery: [{ localPhoto: "/gallery-photos/roastery.webp" }],
-  library: [{ localPhoto: "/gallery-photos/library.webp" }],
+  interior: [1, 2, 3, 4, 5, 6, 7].map((n) => ({ localPhoto: `/space-photos/interior-${n}.webp` })),
+  courtyard: [1, 2, 3, 4, 5, 6].map((n) => ({ localPhoto: `/space-photos/courtyard-${n}.webp` })),
+  roastery: [1, 2, 3, 4].map((n) => ({ localPhoto: `/space-photos/roastery-${n}.webp` })),
+  library: [1, 2, 3, 4].map((n) => ({ localPhoto: `/space-photos/library-${n}.webp` })),
 };
 
 export interface GalleryPhoto {
