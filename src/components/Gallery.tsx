@@ -5,6 +5,18 @@ import { translate } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import Reveal from "@/components/Reveal";
 
+// One cell per photo (galleryPhotos is fixed order: interior, courtyard,
+// roastery, library, coffee, pastry). Only applies above `sm` — mobile
+// stays a plain uniform 2-column grid.
+const BENTO_SPANS = [
+  "sm:col-span-2 sm:row-span-2", // interior — featured
+  "sm:col-span-2 sm:row-span-1", // courtyard — wide
+  "sm:col-span-1 sm:row-span-1", // roastery
+  "sm:col-span-1 sm:row-span-1", // library
+  "sm:col-span-2 sm:row-span-1", // coffee — wide
+  "sm:col-span-2 sm:row-span-1", // pastry — wide
+];
+
 export default function Gallery({ locale, dict }: { locale: Locale; dict: Messages }) {
   const isFa = locale === "fa";
 
@@ -22,15 +34,15 @@ export default function Gallery({ locale, dict }: { locale: Locale; dict: Messag
         </h2>
         <p className="mt-3 max-w-xl text-parchment/70">{dict.gallery.description}</p>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:auto-rows-[150px]">
           {galleryPhotos.map((photo, i) => {
             const src = photo.unsplashId
               ? `https://images.unsplash.com/photo-${photo.unsplashId}?w=800&q=80&auto=format&fit=crop`
               : photo.localPhoto;
             if (!src) return null;
             return (
-              <Reveal key={photo.id} delayMs={i * 70}>
-                <figure className="group relative flex aspect-square items-end overflow-hidden rounded-sm border border-ink-line">
+              <Reveal key={photo.id} delayMs={i * 70} className={cn("aspect-square sm:aspect-auto", BENTO_SPANS[i])}>
+                <figure className="group relative flex h-full items-end overflow-hidden rounded-card border border-ink-line">
                   <Image
                     src={src}
                     alt={translate(dict, photo.captionKey)}
