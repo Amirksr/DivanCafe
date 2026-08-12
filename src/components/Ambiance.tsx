@@ -9,7 +9,7 @@ export default function Ambiance({ locale, dict }: { locale: Locale; dict: Messa
 
   return (
     <section id="ambiance" className="scroll-mt-20 bg-ink-soft px-5 py-20">
-      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
+      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
         <div>
           <p className="text-xs uppercase tracking-widest2 text-gold">{dict.ambiance.eyebrow}</p>
           <h2
@@ -22,7 +22,7 @@ export default function Ambiance({ locale, dict }: { locale: Locale; dict: Messa
           </h2>
           <p className="mt-4 max-w-md text-parchment/70">{dict.ambiance.description}</p>
 
-          <dl className="mt-8 rounded-sm border border-ink-line p-6">
+          <dl className="mt-8 rounded-card border border-ink-line p-6">
             <dt className="font-mono text-xs uppercase tracking-wide text-copper-bright">
               {dict.hours.title}
             </dt>
@@ -44,7 +44,7 @@ export default function Ambiance({ locale, dict }: { locale: Locale; dict: Messa
               <Reveal key={key} delayMs={index * 80}>
                 <Link
                   href={`/${locale}/spaces/${key}`}
-                  className="focus-ring group relative block rounded-sm border border-ink-line bg-ink p-5 transition-colors hover:border-copper"
+                  className="focus-ring group relative block rounded-card border border-ink-line bg-ink p-5 transition-colors hover:border-copper"
                 >
                   <p className={cn("text-base text-parchment", isFa ? "font-display-fa" : "font-display")}>
                     {feature.title}
