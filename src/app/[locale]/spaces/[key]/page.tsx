@@ -59,7 +59,7 @@ export default function SpacePage({
 
         {heroSrc && (
           <Reveal className="mt-10">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-sm border border-ink-line">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-card border border-ink-line">
               <Image src={heroSrc} alt="" fill sizes="(min-width: 1024px) 960px, 100vw" className="object-cover" priority />
             </div>
           </Reveal>
@@ -72,7 +72,7 @@ export default function SpacePage({
               if (!src) return null;
               return (
                 <Reveal key={i} delayMs={i * 60}>
-                  <div className="relative aspect-square overflow-hidden rounded-sm border border-ink-line">
+                  <div className="relative aspect-square overflow-hidden rounded-card border border-ink-line">
                     <Image
                       src={src}
                       alt=""

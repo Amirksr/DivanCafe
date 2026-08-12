@@ -47,7 +47,7 @@ export default function ContactPage({ params }: { params: { locale: string } }) 
 
             <div
               aria-hidden="true"
-              className="relative mt-6 flex h-56 items-center justify-center overflow-hidden rounded-sm border border-ink-line bg-gradient-to-br from-ink-soft to-ink"
+              className="relative mt-6 flex h-56 items-center justify-center overflow-hidden rounded-card border border-ink-line bg-gradient-to-br from-ink-soft to-ink"
             >
               <svg viewBox="0 0 200 120" className="h-full w-full text-ink-line" fill="none">
                 <path d="M0 90 Q50 60 100 90 T200 80" stroke="currentColor" strokeWidth="1" />

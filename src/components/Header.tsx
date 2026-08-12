@@ -63,7 +63,7 @@ export default function Header({ locale, dict }: HeaderProps) {
           <LanguageSwitcher locale={locale} />
           <Link
             href={`/${locale}/contact`}
-            className="focus-ring rounded-sm border border-copper px-4 py-2 text-sm text-copper-bright transition-colors hover:bg-copper hover:text-charcoal"
+            className="focus-ring rounded-card border border-copper px-4 py-2 text-sm text-copper-bright transition-colors hover:bg-copper hover:text-charcoal"
           >
             {dict.nav.reserve}
           </Link>
@@ -118,7 +118,7 @@ export default function Header({ locale, dict }: HeaderProps) {
             </div>
             <Link
               href={`/${locale}/contact`}
-              className="focus-ring rounded-sm border border-copper px-4 py-2 text-sm text-copper-bright"
+              className="focus-ring rounded-card border border-copper px-4 py-2 text-sm text-copper-bright"
               onClick={() => setOpen(false)}
             >
               {dict.nav.reserve}

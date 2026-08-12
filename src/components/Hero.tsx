@@ -53,13 +53,13 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Messages 
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <Link
               href={`/${locale}/menu`}
-              className="focus-ring rounded-sm bg-copper px-6 py-3 text-sm font-medium text-charcoal transition-all hover:-translate-y-0.5 hover:bg-copper-bright hover:shadow-lg hover:shadow-copper/20"
+              className="focus-ring rounded-card bg-copper px-6 py-3 text-sm font-medium text-charcoal transition-all hover:-translate-y-0.5 hover:bg-copper-bright hover:shadow-lg hover:shadow-copper/20"
             >
               {dict.hero.cta_menu}
             </Link>
             <Link
               href={`/${locale}/contact`}
-              className="focus-ring rounded-sm border border-bone/30 px-6 py-3 text-sm text-bone/90 transition-all hover:-translate-y-0.5 hover:border-gold hover:text-gold"
+              className="focus-ring rounded-card border border-bone/30 px-6 py-3 text-sm text-bone/90 transition-all hover:-translate-y-0.5 hover:border-gold hover:text-gold"
             >
               {dict.hero.cta_reserve}
             </Link>

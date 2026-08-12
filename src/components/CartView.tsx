@@ -17,7 +17,7 @@ export default function CartView({ locale, dict }: { locale: Locale; dict: Messa
         <p className="text-parchment/70">{dict.cart.empty}</p>
         <Link
           href={`/${locale}/menu`}
-          className="focus-ring mt-6 inline-block rounded-sm border border-copper px-6 py-3 text-sm text-copper-bright hover:bg-copper hover:text-charcoal"
+          className="focus-ring mt-6 inline-block rounded-card border border-copper px-6 py-3 text-sm text-copper-bright hover:bg-copper hover:text-charcoal"
         >
           {dict.cart.empty_cta}
         </Link>
@@ -36,7 +36,7 @@ export default function CartView({ locale, dict }: { locale: Locale; dict: Messa
 
           return (
             <div key={item.id} className="flex items-center gap-4 py-5">
-              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-sm border border-ink-line/60 bg-ink-soft">
+              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-card border border-ink-line/60 bg-ink-soft">
                 {photoSrc ? (
                   <Image src={photoSrc} alt="" fill sizes="64px" className="object-cover" />
                 ) : (
@@ -55,7 +55,7 @@ export default function CartView({ locale, dict }: { locale: Locale; dict: Messa
                 </p>
               </div>
 
-              <div className="flex items-center rounded-sm border border-ink-line">
+              <div className="flex items-center rounded-card border border-ink-line">
                 <button
                   type="button"
                   onClick={() => setQuantity(item.id, quantity - 1)}
@@ -108,7 +108,7 @@ export default function CartView({ locale, dict }: { locale: Locale; dict: Messa
             disabled
             aria-disabled="true"
             title={dict.cart.checkout_note}
-            className="focus-ring cursor-not-allowed rounded-sm bg-copper/40 px-6 py-3 text-sm font-medium text-charcoal/60"
+            className="focus-ring cursor-not-allowed rounded-card bg-copper/40 px-6 py-3 text-sm font-medium text-charcoal/60"
           >
             {dict.cart.checkout}
           </button>

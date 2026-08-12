@@ -16,11 +16,11 @@ export default function NewsletterForm({ placeholder, cta }: NewsletterFormProps
         type="email"
         required
         placeholder={placeholder}
-        className="focus-ring w-full border border-ink-line bg-transparent px-3 py-2 text-sm text-parchment placeholder:text-parchment/40"
+        className="focus-ring w-full rounded-s-card border border-ink-line bg-transparent px-3 py-2 text-sm text-parchment placeholder:text-parchment/40"
       />
       <button
         type="submit"
-        className="focus-ring shrink-0 border border-copper px-3 py-2 text-sm text-copper-bright hover:bg-copper hover:text-charcoal"
+        className="focus-ring shrink-0 rounded-e-card border border-copper px-3 py-2 text-sm text-copper-bright hover:bg-copper hover:text-charcoal"
       >
         {cta}
       </button>

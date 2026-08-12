@@ -59,7 +59,7 @@ export default function QuickViewModal({ locale, dict }: { locale: Locale; dict:
       onClick={closeQuickView}
     >
       <div
-        className="max-h-[90vh] w-full max-w-md overflow-y-auto rounded-t-lg bg-ink sm:rounded-lg"
+        className="max-h-[90vh] w-full max-w-md overflow-y-auto rounded-t-card bg-ink sm:rounded-card"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative aspect-[4/3] w-full bg-ink-soft">
@@ -93,7 +93,7 @@ export default function QuickViewModal({ locale, dict }: { locale: Locale; dict:
           </p>
 
           <div className="mt-6 flex items-center gap-4">
-            <div className="flex items-center rounded-sm border border-ink-line">
+            <div className="flex items-center rounded-card border border-ink-line">
               <button
                 type="button"
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -118,7 +118,7 @@ export default function QuickViewModal({ locale, dict }: { locale: Locale; dict:
             <button
               type="button"
               onClick={handleAdd}
-              className="focus-ring flex-1 rounded-sm bg-copper px-4 py-2.5 text-sm font-medium text-charcoal transition-colors hover:bg-copper-bright"
+              className="focus-ring flex-1 rounded-card bg-copper px-4 py-2.5 text-sm font-medium text-charcoal transition-colors hover:bg-copper-bright"
             >
               {justAdded ? `✓ ${dict.quick_view.added}` : dict.quick_view.add_to_cart}
             </button>

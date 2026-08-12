@@ -25,7 +25,7 @@ export default function MenuTicket({ item, index, locale, dict, tone = "dark" }:
   return (
     <article
       className={cn(
-        "group relative -mx-2 flex gap-4 rounded-sm border-b border-dashed px-2 py-5 transition-colors duration-200 last:border-none",
+        "group relative -mx-2 flex gap-4 rounded-card border-b border-dashed px-2 py-5 transition-colors duration-200 last:border-none",
         isLight ? "border-charcoal/15 hover:bg-black/[0.03]" : "border-ink-line hover:bg-white/[0.03]"
       )}
     >
@@ -36,7 +36,7 @@ export default function MenuTicket({ item, index, locale, dict, tone = "dark" }:
       {photoSrc ? (
         <div
           className={cn(
-            "relative h-14 w-14 shrink-0 overflow-hidden rounded-sm border",
+            "relative h-14 w-14 shrink-0 overflow-hidden rounded-card border",
             isLight ? "border-charcoal-line/40" : "border-ink-line/60"
           )}
         >
@@ -46,7 +46,7 @@ export default function MenuTicket({ item, index, locale, dict, tone = "dark" }:
         <div
           aria-hidden="true"
           className={cn(
-            "flex h-14 w-14 shrink-0 items-center justify-center rounded-sm border",
+            "flex h-14 w-14 shrink-0 items-center justify-center rounded-card border",
             isLight ? "border-charcoal/15 bg-black/[0.02] text-charcoal/40" : "border-ink-line bg-white/[0.02] text-parchment/40"
           )}
         >

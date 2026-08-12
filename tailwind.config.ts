@@ -5,6 +5,9 @@ const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
+      borderRadius: {
+        card: "10px",
+      },
       colors: {
         // Theme-swappable page roles: these read from CSS custom properties
         // that flip between the dark and light palettes in globals.css.

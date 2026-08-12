@@ -40,7 +40,7 @@ export default function AboutPage({ params }: { params: { locale: string } }) {
           {valueKeys.map((key) => {
             const value = page.values[key];
             return (
-              <div key={key} className="rounded-sm border border-ink-line bg-ink-soft p-6">
+              <div key={key} className="rounded-card border border-ink-line bg-ink-soft p-6">
                 <p className={cn("text-lg text-parchment", isFa ? "font-display-fa" : "font-display")}>
                   {value.title}
                 </p>
@@ -59,7 +59,7 @@ export default function AboutPage({ params }: { params: { locale: string } }) {
           {teamKeys.map((key) => {
             const member = page.team[key];
             return (
-              <div key={key} className="flex items-center gap-4 rounded-sm border border-ink-line p-4">
+              <div key={key} className="flex items-center gap-4 rounded-card border border-ink-line p-4">
                 <div
                   aria-hidden="true"
                   className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-copper-dim to-ink font-mono text-sm text-parchment/70"

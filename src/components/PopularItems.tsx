@@ -22,7 +22,7 @@ export default function PopularItems({ locale, dict }: { locale: Locale; dict: M
         </h2>
         <p className="mt-3 max-w-lg text-charcoal/70">{dict.popular.description}</p>
 
-        <Reveal delayMs={100} className="mt-8 rounded-sm border border-charcoal/10 bg-bone px-6 sm:px-8">
+        <Reveal delayMs={100} className="mt-8 rounded-card border border-charcoal/10 bg-bone px-6 sm:px-8">
           {popularItems.map((item, i) => (
             <MenuTicket key={item.id} item={item} index={i + 1} locale={locale} dict={dict} tone="light" />
           ))}
@@ -31,7 +31,7 @@ export default function PopularItems({ locale, dict }: { locale: Locale; dict: M
         <div className="mt-8 text-center">
           <Link
             href={`/${locale}/menu`}
-            className="focus-ring inline-block rounded-sm border border-charcoal/20 px-6 py-3 text-sm text-charcoal transition-all hover:-translate-y-0.5 hover:border-copper hover:text-copper"
+            className="focus-ring inline-block rounded-card border border-charcoal/20 px-6 py-3 text-sm text-charcoal transition-all hover:-translate-y-0.5 hover:border-copper hover:text-copper"
           >
             {dict.popular.view_all}
           </Link>

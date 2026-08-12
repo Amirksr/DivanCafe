@@ -51,7 +51,7 @@ export default function ContactForm({ locale, dict }: { locale: Locale; dict: Me
 
   if (submitted) {
     return (
-      <div role="status" className="rounded-sm border border-gold/40 bg-ink-soft p-6 text-parchment">
+      <div role="status" className="rounded-card border border-gold/40 bg-ink-soft p-6 text-parchment">
         <p className="font-mono text-sm text-gold">✓ {locale === "fa" ? "پیام دریافت شد" : "Message received"}</p>
         <p className="mt-2 text-sm text-parchment/70">
           {locale === "fa"
@@ -135,7 +135,7 @@ export default function ContactForm({ locale, dict }: { locale: Locale; dict: Me
 
       <button
         type="submit"
-        className="focus-ring w-full rounded-sm bg-copper px-6 py-3 text-sm font-medium text-charcoal transition-colors hover:bg-copper-bright sm:w-auto"
+        className="focus-ring w-full rounded-card bg-copper px-6 py-3 text-sm font-medium text-charcoal transition-colors hover:bg-copper-bright sm:w-auto"
       >
         {f.submit}
       </button>
@@ -144,7 +144,7 @@ export default function ContactForm({ locale, dict }: { locale: Locale; dict: Me
 }
 
 const inputClass =
-  "focus-ring mt-1.5 w-full border border-ink-line bg-transparent px-3 py-2 text-sm text-parchment placeholder:text-parchment/40";
+  "focus-ring mt-1.5 w-full rounded-card border border-ink-line bg-transparent px-3 py-2 text-sm text-parchment placeholder:text-parchment/40";
 
 function Field({
   label,

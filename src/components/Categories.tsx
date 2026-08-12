@@ -30,7 +30,7 @@ export default function Categories({ locale, dict }: { locale: Locale; dict: Mes
               <Reveal key={key} delayMs={index * 60}>
                 <Link
                   href={`/${locale}/menu#${key}`}
-                  className="focus-ring group relative block overflow-hidden rounded-sm border border-ink-line bg-ink-soft p-6 transition-all duration-300 hover:-translate-y-1 hover:border-copper hover:shadow-lg hover:shadow-black/20"
+                  className="focus-ring group relative block overflow-hidden rounded-card border border-ink-line bg-ink-soft p-6 transition-all duration-300 hover:-translate-y-1 hover:border-copper hover:shadow-lg hover:shadow-black/20"
                 >
                   <Icon
                     aria-hidden="true"
