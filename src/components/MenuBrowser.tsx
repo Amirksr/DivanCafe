@@ -54,7 +54,7 @@ export default function MenuBrowser({ locale, dict }: { locale: Locale; dict: Me
 
       <div className="mt-10 space-y-14">
         {groups.map((group) => (
-          <section key={group.key} id={group.key} className="scroll-mt-24">
+          <section key={group.key} id={group.key} className="scroll-mt-28">
             <h2
               className={cn(
                 "text-2xl text-parchment",

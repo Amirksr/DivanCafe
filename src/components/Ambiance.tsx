@@ -8,7 +8,7 @@ export default function Ambiance({ locale, dict }: { locale: Locale; dict: Messa
   const isFa = locale === "fa";
 
   return (
-    <section id="ambiance" className="scroll-mt-20 bg-ink-soft px-5 py-20">
+    <section id="ambiance" className="scroll-mt-28 bg-ink-soft px-5 py-20">
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
         <div>
           <p className="text-xs uppercase tracking-widest2 text-gold">{dict.ambiance.eyebrow}</p>
