@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import type { Locale, Messages } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import Logo from "@/components/Logo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ThemeToggle from "@/components/ThemeToggle";
 import CartButton from "@/components/CartButton";
+import MobileNav from "@/components/MobileNav";
 
 interface HeaderProps {
   locale: Locale;
@@ -16,7 +17,7 @@ interface HeaderProps {
 
 export default function Header({ locale, dict }: HeaderProps) {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const isFa = locale === "fa";
 
   const links: Array<{ href: string; label: string }> = [
     { href: `/${locale}`, label: dict.nav.home },
@@ -29,16 +30,10 @@ export default function Header({ locale, dict }: HeaderProps) {
     href === `/${locale}` ? pathname === href : pathname?.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink-line/70 bg-ink/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <Link
-          href={`/${locale}`}
-          className={cn(
-            "focus-ring text-xl tracking-widest2",
-            locale === "fa" ? "font-display-fa" : "font-display"
-          )}
-        >
-          {dict.hero.title}
+    <header className="sticky top-3 z-40 mx-3 rounded-card border border-ink-line bg-ink/95 backdrop-blur sm:mx-6 lg:mx-auto lg:max-w-6xl">
+      <div className="flex items-center justify-between px-4 py-3 sm:px-6">
+        <Link href={`/${locale}`} className="focus-ring">
+          <Logo wordmark={dict.hero.title} isFa={isFa} />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
@@ -71,61 +66,9 @@ export default function Header({ locale, dict }: HeaderProps) {
 
         <div className="flex items-center gap-3 md:hidden">
           <CartButton locale={locale} label={dict.nav.cart} />
-          <button
-            type="button"
-            className="focus-ring inline-flex flex-col gap-1.5 p-2"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span
-              className={cn(
-                "block h-px w-6 bg-parchment transition-transform",
-                open && "translate-y-[7px] rotate-45"
-              )}
-            />
-            <span className={cn("block h-px w-6 bg-parchment transition-opacity", open && "opacity-0")} />
-            <span
-              className={cn(
-                "block h-px w-6 bg-parchment transition-transform",
-                open && "-translate-y-[7px] -rotate-45"
-              )}
-            />
-          </button>
+          <MobileNav locale={locale} dict={dict} />
         </div>
       </div>
-
-      {open && (
-        <nav id="mobile-nav" aria-label="Primary mobile" className="border-t border-ink-line/70 px-5 pb-6 md:hidden">
-          <ul className="flex flex-col gap-4 pt-4">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="focus-ring block text-base text-parchment/90"
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-5 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <ThemeToggle />
-              <LanguageSwitcher locale={locale} />
-            </div>
-            <Link
-              href={`/${locale}/contact`}
-              className="focus-ring rounded-card border border-copper px-4 py-2 text-sm text-copper-bright"
-              onClick={() => setOpen(false)}
-            >
-              {dict.nav.reserve}
-            </Link>
-          </div>
-        </nav>
-      )}
     </header>
   );
 }
