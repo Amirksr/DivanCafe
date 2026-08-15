@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import { categoryCounts, categoryOrder, menuItems, ambianceFeatures, spacePhotos, galleryPhotos } from "@/lib/data";
 
 describe("menuItems", () => {
@@ -25,6 +27,87 @@ describe("menuItems", () => {
       expect(item.desc.fa.length).toBeGreaterThan(0);
       expect(item.desc.en.length).toBeGreaterThan(0);
     }
+  });
+});
+
+describe("main-course batch (brunch category expansion)", () => {
+  const newIds = [
+    "loobia-polo",
+    "khoresh-havij",
+    "khoresh-karafs",
+    "ferni",
+    "khoresh-lapeh",
+    "khoresh-aloo-esfenaj",
+    "omlet-sabzijat",
+    "khoresh-khalal-badam",
+    "kashk-bademjan",
+    "komaj",
+    "ash-shole-ghalamkar",
+    "ash-reshteh",
+    "ash-jo",
+    "khoresh-gheimeh",
+    "omlet-gharch",
+    "khoresh-fesenjan",
+    "kalam-polo-shirazi",
+    "khoresh-aloo",
+    "morassa-polo",
+    "adas-polo",
+    "sholeh-zard",
+    "halim",
+    "khoresh-ghormeh-sabzi",
+    "joojeh-kabab",
+    "kabab-koobideh",
+    "zereshk-polo-morgh",
+    "khoresh-bamieh",
+    "meygoo-polo",
+    "baghali-polo-machehe",
+    "omlet-gojeh",
+  ];
+
+  it("added exactly 30 new items", () => {
+    expect(newIds).toHaveLength(30);
+  });
+
+  it("every expected id is present in menuItems exactly once", () => {
+    for (const id of newIds) {
+      const matches = menuItems.filter((item) => item.id === id);
+      expect(matches).toHaveLength(1);
+    }
+  });
+
+  it("every new item is filed under the brunch (Mains) category", () => {
+    for (const id of newIds) {
+      const item = menuItems.find((i) => i.id === id);
+      expect(item?.category).toBe("brunch");
+    }
+  });
+
+  it("every new item points at a distinct local photo under /menu-photos/", () => {
+    const paths = newIds.map((id) => menuItems.find((i) => i.id === id)?.localPhoto);
+    for (const path of paths) {
+      expect(path).toMatch(/^\/menu-photos\/[a-z0-9-]+\.webp$/);
+    }
+    expect(new Set(paths).size).toBe(paths.length);
+  });
+
+  it("every new item's localPhoto file actually exists on disk", () => {
+    for (const id of newIds) {
+      const item = menuItems.find((i) => i.id === id);
+      const relative = item?.localPhoto?.replace(/^\//, "");
+      const abs = path.join(process.cwd(), "public", relative ?? "");
+      expect(fs.existsSync(abs)).toBe(true);
+    }
+  });
+
+  it("brunch category count grew by exactly 30 (existing 3 items preserved)", () => {
+    const brunchCount = menuItems.filter((item) => item.category === "brunch").length;
+    expect(brunchCount).toBe(33);
+  });
+
+  it("the pre-existing mirza item was not duplicated by the new batch", () => {
+    const mirzaItems = menuItems.filter((item) => item.id === "mirza");
+    expect(mirzaItems).toHaveLength(1);
+    expect(mirzaItems[0]?.localPhoto).toBe("/menu-photos/mirza.webp");
   });
 });
 
