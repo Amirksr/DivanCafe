@@ -1,5 +1,33 @@
 import { categoryCounts, categoryOrder, menuItems, ambianceFeatures, spacePhotos, galleryPhotos } from "@/lib/data";
 
+describe("menuItems", () => {
+  it("has no duplicate ids", () => {
+    const ids = menuItems.map((item) => item.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it("every item belongs to a known category", () => {
+    for (const item of menuItems) {
+      expect(categoryOrder).toContain(item.category);
+    }
+  });
+
+  it("every item has a positive price", () => {
+    for (const item of menuItems) {
+      expect(item.price).toBeGreaterThan(0);
+    }
+  });
+
+  it("every item has both fa and en name/desc text", () => {
+    for (const item of menuItems) {
+      expect(item.name.fa.length).toBeGreaterThan(0);
+      expect(item.name.en.length).toBeGreaterThan(0);
+      expect(item.desc.fa.length).toBeGreaterThan(0);
+      expect(item.desc.en.length).toBeGreaterThan(0);
+    }
+  });
+});
+
 describe("categoryCounts", () => {
   it("has an entry for every category in categoryOrder", () => {
     for (const key of categoryOrder) {
