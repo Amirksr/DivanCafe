@@ -9,7 +9,7 @@ export default function Ambiance({ locale, dict }: { locale: Locale; dict: Messa
 
   return (
     <section id="ambiance" className="scroll-mt-28 bg-ink-soft px-5 py-20">
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:gap-12">
         <div>
           <p className="text-xs uppercase tracking-widest2 text-gold">{dict.ambiance.eyebrow}</p>
           <h2
@@ -44,12 +44,19 @@ export default function Ambiance({ locale, dict }: { locale: Locale; dict: Messa
               <Reveal key={key} delayMs={index * 80}>
                 <Link
                   href={`/${locale}/spaces/${key}`}
-                  className="focus-ring group relative block rounded-card border border-ink-line bg-ink p-5 transition-colors hover:border-copper"
+                  className="focus-ring group relative flex h-36 flex-col rounded-card border border-ink-line bg-ink p-5 transition-colors hover:border-copper"
                 >
-                  <p className={cn("text-base text-parchment", isFa ? "font-display-fa" : "font-display")}>
+                  <p
+                    className={cn(
+                      "line-clamp-1 text-base text-parchment",
+                      isFa ? "font-display-fa" : "font-display"
+                    )}
+                  >
                     {feature.title}
                   </p>
-                  <p className="mt-1.5 pe-5 text-xs leading-relaxed text-parchment/60">{feature.desc}</p>
+                  <p className="mt-1.5 line-clamp-3 pe-5 text-xs leading-relaxed text-parchment/60">
+                    {feature.desc}
+                  </p>
                   <span
                     aria-hidden="true"
                     className="absolute end-4 top-5 text-copper-bright opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100 rtl:rotate-180 rtl:group-hover:-translate-x-0.5"

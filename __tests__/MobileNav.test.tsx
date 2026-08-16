@@ -28,6 +28,26 @@ afterEach(() => {
 });
 
 describe("MobileNav", () => {
+  it("portals the backdrop and panel directly onto document.body", async () => {
+    // Regression test: this component is rendered inside the sticky,
+    // backdrop-blurred <header>. A `filter`/`backdrop-filter` on an ancestor
+    // creates a new containing block for `position: fixed` descendants, so
+    // without portaling to document.body the backdrop/panel would be
+    // trapped inside whatever DOM parent renders MobileNav instead of
+    // covering the viewport.
+    const { container } = renderNav();
+    fireEvent.click(screen.getByLabelText("Open menu"));
+
+    const panel = document.getElementById("mobile-nav-panel");
+    expect(panel).toBeInTheDocument();
+    expect(panel?.parentElement).toBe(document.body);
+    expect(container.contains(panel)).toBe(false);
+
+    const backdrop = document.querySelector('[aria-hidden="true"].fixed.inset-0');
+    expect(backdrop?.parentElement).toBe(document.body);
+    expect(container.contains(backdrop)).toBe(false);
+  });
+
   it("panel is closed by default", () => {
     renderNav();
     const panel = document.getElementById("mobile-nav-panel");

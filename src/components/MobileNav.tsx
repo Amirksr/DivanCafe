@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import type { Locale, Messages } from "@/lib/i18n";
@@ -22,9 +23,23 @@ const SELECT_DELAY_MS = 220;
 export default function MobileNav({ locale, dict }: { locale: Locale; dict: Messages }) {
   const [open, setOpen] = useState(false);
   const [pendingHref, setPendingHref] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const isFa = locale === "fa";
+
+  // The backdrop/panel are portaled straight to <body> instead of rendering
+  // in place. This component lives inside the sticky, backdrop-blurred
+  // <header>; a `filter`/`backdrop-filter` on an ancestor establishes a new
+  // containing block for `position: fixed` descendants, so without the
+  // portal the backdrop and panel were confined to the header's own ~64px
+  // bounding box instead of the viewport — visible as a stray sliver at the
+  // nav's edge, and an off-canvas menu that never actually covered the page
+  // (looked "transparent"/unusable). `mounted` guards against SSR, where
+  // `document.body` doesn't exist yet.
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const links: NavLink[] = [
     { href: `/${locale}`, label: dict.nav.home, Icon: HomeIcon },
@@ -59,21 +74,8 @@ export default function MobileNav({ locale, dict }: { locale: Locale; dict: Mess
     }, SELECT_DELAY_MS);
   }
 
-  return (
+  const panel = (
     <>
-      <button
-        type="button"
-        className="focus-ring inline-flex flex-col gap-1.5 p-2"
-        aria-label={open ? "Close menu" : "Open menu"}
-        aria-expanded={open}
-        aria-controls="mobile-nav-panel"
-        onClick={() => setOpen((v) => !v)}
-      >
-        <span className={cn("block h-px w-6 bg-parchment transition-transform", open && "translate-y-[7px] rotate-45")} />
-        <span className={cn("block h-px w-6 bg-parchment transition-opacity", open && "opacity-0")} />
-        <span className={cn("block h-px w-6 bg-parchment transition-transform", open && "-translate-y-[7px] -rotate-45")} />
-      </button>
-
       {/* Backdrop */}
       <div
         aria-hidden="true"
@@ -158,6 +160,25 @@ export default function MobileNav({ locale, dict }: { locale: Locale; dict: Mess
         </div>
         <div className="pb-[env(safe-area-inset-bottom)]" />
       </nav>
+    </>
+  );
+
+  return (
+    <>
+      <button
+        type="button"
+        className="focus-ring inline-flex flex-col gap-1.5 p-2"
+        aria-label={open ? "Close menu" : "Open menu"}
+        aria-expanded={open}
+        aria-controls="mobile-nav-panel"
+        onClick={() => setOpen((v) => !v)}
+      >
+        <span className={cn("block h-px w-6 bg-parchment transition-transform", open && "translate-y-[7px] rotate-45")} />
+        <span className={cn("block h-px w-6 bg-parchment transition-opacity", open && "opacity-0")} />
+        <span className={cn("block h-px w-6 bg-parchment transition-transform", open && "-translate-y-[7px] -rotate-45")} />
+      </button>
+
+      {mounted && createPortal(panel, document.body)}
     </>
   );
 }

@@ -13,7 +13,15 @@ export default function ThemeToggle() {
   }, []);
 
   function toggle() {
-    const next: Theme = theme === "light" ? "dark" : "light";
+    // Flip the *actual* current theme (read straight from the DOM), not the
+    // `theme` state variable. `theme` starts out `null` and only resolves
+    // once the post-mount effect above runs; if this button is clicked in
+    // that window (e.g. right after switching locale, which briefly
+    // remounts this component) a click computed from the stale `null` state
+    // always resolved to "light" — a no-op whenever the page was already
+    // light, which looked like "the first click does nothing."
+    const isCurrentlyLight = document.documentElement.classList.contains("light");
+    const next: Theme = isCurrentlyLight ? "dark" : "light";
     setTheme(next);
     applyTheme(next);
   }

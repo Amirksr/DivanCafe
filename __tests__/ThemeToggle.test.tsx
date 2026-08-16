@@ -46,4 +46,26 @@ describe("ThemeToggle", () => {
     expect(document.documentElement.classList.contains("light")).toBe(false);
     expect(window.localStorage.getItem("theme")).toBe("dark");
   });
+
+  it("toggles based on the DOM's actual current theme class, not a stale internal copy", async () => {
+    // Regression test for a bug where clicking right after this component
+    // remounted (e.g. from a locale switch) could be a no-op: the click
+    // handler computed the next theme from React state that starts out
+    // `null` before the post-mount effect resolves it, and treated `null`
+    // the same as "dark" -- so a click while the page was already light did
+    // nothing until a second click.
+    window.localStorage.setItem("theme", "light");
+    render(<ThemeToggle />);
+    await waitFor(() => expect(screen.getByRole("button")).toHaveAttribute("data-theme-ready", "true"));
+
+    // Force the DOM out from under the component's own state, standing in
+    // for "internal state hasn't caught up with the real page theme yet".
+    document.documentElement.classList.remove("light");
+
+    fireEvent.click(screen.getByRole("button"));
+
+    // A single click must flip the *actual* (now-dark) DOM state to light,
+    // not fall back to always landing on "light" regardless of where it started.
+    expect(document.documentElement.classList.contains("light")).toBe(true);
+  });
 });

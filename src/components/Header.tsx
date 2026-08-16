@@ -36,7 +36,7 @@ export default function Header({ locale, dict }: HeaderProps) {
           <Logo wordmark={dict.hero.title} isFa={isFa} />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -52,7 +52,7 @@ export default function Header({ locale, dict }: HeaderProps) {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           <ThemeToggle />
           <CartButton locale={locale} label={dict.nav.cart} />
           <LanguageSwitcher locale={locale} />
@@ -64,7 +64,11 @@ export default function Header({ locale, dict }: HeaderProps) {
           </Link>
         </div>
 
-        <div className="flex items-center gap-3 md:hidden">
+        {/* Below lg (includes tablets in both orientations) the full row above
+            doesn't have room for 4 links + toggle + cart + language + reserve
+            button without wrapping/uneven gaps, so we fall back to the
+            off-canvas nav here instead of only on phones. */}
+        <div className="flex items-center gap-3 lg:hidden">
           <CartButton locale={locale} label={dict.nav.cart} />
           <MobileNav locale={locale} dict={dict} />
         </div>

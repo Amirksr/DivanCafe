@@ -17,11 +17,11 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Messages 
         fill
         priority
         sizes="100vw"
-        className="pointer-events-none object-cover opacity-30"
+        className="pointer-events-none object-cover opacity-50"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/75 to-charcoal"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-charcoal/95 via-charcoal/45 to-charcoal"
       />
       <div className="pointer-events-none absolute inset-0 opacity-[0.08]">
         <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,#D4A24C_0,transparent_35%),radial-gradient(circle_at_80%_60%,#B8622C_0,transparent_40%)]" />

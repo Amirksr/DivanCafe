@@ -30,15 +30,15 @@ export default function Categories({ locale, dict }: { locale: Locale; dict: Mes
               <Reveal key={key} delayMs={index * 60}>
                 <Link
                   href={`/${locale}/menu#${key}`}
-                  className="focus-ring group relative block overflow-hidden rounded-card border border-ink-line bg-ink-soft p-6 transition-all duration-300 hover:-translate-y-1 hover:border-copper hover:shadow-lg hover:shadow-black/20"
+                  className="focus-ring group relative flex h-[172px] flex-col justify-center overflow-hidden rounded-card border border-ink-line bg-ink-soft p-5 transition-all duration-300 hover:-translate-y-1 hover:border-copper hover:shadow-lg hover:shadow-black/20"
                 >
                   <Icon
                     aria-hidden="true"
-                    className="h-8 w-8 text-copper-bright transition-transform duration-300 group-hover:scale-110"
+                    className="h-8 w-8 shrink-0 text-copper-bright transition-transform duration-300 group-hover:scale-110"
                   />
                   <p
                     className={cn(
-                      "mt-4 text-lg text-parchment",
+                      "mt-3 line-clamp-2 text-lg leading-snug text-parchment",
                       isFa ? "font-display-fa" : "font-display"
                     )}
                   >
